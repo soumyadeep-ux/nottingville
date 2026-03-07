@@ -400,6 +400,94 @@
     footer a { color: rgba(255,255,255,0.42); text-decoration: none; }
     footer a:hover { color: rgba(255,255,255,0.7); }
 
+    /* ── COACHING SECTION ── */
+    .coaching-bg {
+      background: #0E1A10;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .coaching-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(200,128,10,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .coaching-bg .eyebrow { color: var(--ochre-light); }
+    .coaching-bg .section-title { color: #fff; }
+    .coaching-bg .section-title em { color: var(--ochre-light); }
+    .coaching-intro {
+      font-size: 1.05rem; color: rgba(255,255,255,0.65);
+      max-width: 580px; margin: 0.5rem 0 3rem; line-height: 1.8;
+    }
+    .coaching-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: start;
+    }
+    .institute-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .institute-card {
+      display: flex; align-items: center; gap: 1.2rem;
+      padding: 1.4rem 1.6rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-left: 3px solid var(--ochre);
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .institute-card:hover { background: rgba(255,255,255,0.09); transform: translateX(4px); }
+    .inst-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: rgba(200,128,10,0.18);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .inst-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 500; color: #fff;
+      margin-bottom: 0.15rem;
+    }
+    .inst-note { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+
+    .exam-targets { display: flex; flex-direction: column; gap: 1.2rem; }
+    .exam-target-label {
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ochre-light); margin-bottom: 1rem;
+    }
+    .exam-pill-group { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+    .exam-pill {
+      padding: 0.45rem 1.1rem; border-radius: 2rem;
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em;
+      background: rgba(200,128,10,0.18); color: var(--ochre-light);
+      border: 1px solid rgba(200,128,10,0.3);
+    }
+    .exam-pill.accent {
+      background: var(--ochre); color: #fff;
+      border-color: var(--ochre);
+    }
+    .coaching-stat-row { display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .coaching-stat { }
+    .coaching-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 600; color: var(--ochre-light); line-height: 1;
+    }
+    .coaching-stat-label {
+      font-size: 0.75rem; color: rgba(255,255,255,0.45);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem;
+    }
+    .coaching-promise {
+      margin-top: 2rem; padding: 1.4rem 1.6rem;
+      background: rgba(200,128,10,0.1);
+      border: 1px solid rgba(200,128,10,0.25);
+      border-radius: 6px;
+      font-size: 0.95rem; color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .coaching-promise strong { color: var(--ochre-light); }
+
+    @media (max-width: 768px) {
+      .coaching-layout { grid-template-columns: 1fr; }
+    }
+
     /* ── SCROLL ANIMATIONS ── */
     .fade-in {
       opacity: 0; transform: translateY(22px);
@@ -461,7 +549,7 @@
   <div class="hero-content">
     <p class="hero-badge">Girls' Hostel &nbsp;·&nbsp; Durgapur</p>
     <h1>Your daughter deserves<br>a <em>home,</em> not just<br>a hostel.</h1>
-    <p class="hero-sub">Safe, well-fed, and genuinely cared for — by three mothers who built this place for daughters just like hers.</p>
+    <p class="hero-sub">Focus on cracking IIT, NEET, or your dream college. We take care of everything else — food, safety, and a home that lets you study in peace.</p>
     <div class="hero-ctas">
       <a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="btn-wa" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -485,9 +573,9 @@
 <div class="problem">
   <div class="problem-inner fade-in">
     <p class="eyebrow">We Understand</p>
-    <h2>Sending her away is <em>hard.</em><br>Finding someone who truly cares is harder.</h2>
-    <p>Most hostels offer a bed and a lock. What a parent actually needs is peace of mind — knowing their daughter is safe, properly fed, and surrounded by people who genuinely look out for her.</p>
-    <p>That's exactly why three mothers built Nottingville. Not as a business. As the hostel they would want for their own daughters.</p>
+    <h2>Your dream college deserves your <em>full focus.</em><br>Not hostel stress.</h2>
+    <p>Every hour spent worrying about food, safety, or commuting to coaching is an hour not spent studying. Nottingville removes all of that — so students preparing for IIT JEE, NEET, and premier college entrances can focus entirely on what matters.</p>
+    <p>For parents: three mothers built this hostel because they wanted exactly this for their own daughters — safety, care, and the right environment to thrive.</p>
     <div class="problem-divider"></div>
   </div>
 </div>
@@ -631,6 +719,78 @@
       <div class="loc-card fade-in">
         <div class="loc-n">04</div>
         <div class="loc-name">55 Tarashankar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COACHING INSTITUTES -->
+<section class="padded coaching-bg">
+  <div class="container">
+    <p class="eyebrow fade-in">Location Advantage</p>
+    <h2 class="section-title fade-in">Steps away from<br>Durgapur's <em>top coaching hubs</em></h2>
+    <p class="coaching-intro fade-in">No long commutes. No wasted study time. Nottingville is situated close to the city's leading coaching institutes — so you spend less time travelling and more time preparing.</p>
+
+    <div class="coaching-layout">
+      <div class="institute-grid">
+        <div class="institute-card fade-in">
+          <div class="inst-icon">🎯</div>
+          <div>
+            <div class="inst-name">FIITJEE Durgapur</div>
+            <div class="inst-note">JEE Main &amp; Advanced · Engineering Entrance</div>
+          </div>
+        </div>
+        <div class="institute-card fade-in">
+          <div class="inst-icon">📚</div>
+          <div>
+            <div class="inst-name">Aakash Institute</div>
+            <div class="inst-note">NEET · JEE · AIIMS · Foundation Courses</div>
+          </div>
+        </div>
+        <div class="institute-card fade-in">
+          <div class="inst-icon">⭐</div>
+          <div>
+            <div class="inst-name">Allen Career Institute</div>
+            <div class="inst-note">JEE · NEET · Pre-foundation</div>
+          </div>
+        </div>
+        <div class="institute-card fade-in">
+          <div class="inst-icon">🏫</div>
+          <div>
+            <div class="inst-name">Other Coaching Centres</div>
+            <div class="inst-note">Multiple local &amp; national institutes nearby</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <div class="exam-target-label">Students here are preparing for</div>
+        <div class="exam-pill-group">
+          <span class="exam-pill accent">IIT JEE</span>
+          <span class="exam-pill accent">NEET</span>
+          <span class="exam-pill">AIIMS</span>
+          <span class="exam-pill">NIT</span>
+          <span class="exam-pill">WBJEE</span>
+          <span class="exam-pill">BITS Pilani</span>
+          <span class="exam-pill">Top Medical Colleges</span>
+          <span class="exam-pill">Defence Exams</span>
+        </div>
+
+        <div class="coaching-stat-row">
+          <div class="coaching-stat">
+            <div class="coaching-stat-num">6 AM</div>
+            <div class="coaching-stat-label">Gate opens — early start</div>
+          </div>
+          <div class="coaching-stat">
+            <div class="coaching-stat-num">24×7</div>
+            <div class="coaching-stat-label">Safe &amp; supervised</div>
+          </div>
+        </div>
+
+        <div class="coaching-promise">
+          <strong>No commute stress. No meal stress. No safety stress.</strong><br>
+          Just a quiet room, four meals a day, and everything you need to study hard and sleep well. The only thing left to focus on is your rank.
+        </div>
       </div>
     </div>
   </div>
