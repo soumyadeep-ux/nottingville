@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nottingville Hostel — Safe Girls' Hostel in Kolkata</title>
+  <meta name="description" content="Nottingville is a girls' hostel in Kolkata run by three mothers for daughters. 60 beds, 4 meals daily, 24x7 CCTV, AC & Non-AC rooms. Sarojini Naidu Path, Kolkata." />
+  <meta name="keywords" content="girls hostel Kolkata, ladies hostel Kolkata, student hostel Kolkata, safe hostel for girls, Nottingville hostel" />
+  <meta property="og:title" content="Nottingville — A Hostel Run by Mothers, for Daughters" />
+  <meta property="og:description" content="Safe, homely girls' hostel in Kolkata. 60 beds, 4 meals daily, 24x7 security. Run by three mothers who understand what daughters truly need." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://nottingville.space" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & ROOT ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ochre:       #C8800A;
+      --ochre-light: #E8A428;
+      --terra:       #B83E2C;
+      --cream:       #FAF6EE;
+      --parch:       #F0E8D5;
+      --deep:        #231008;
+      --warm:        #6B3E28;
+      --muted:       #9A7A68;
+      --green:       #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--deep);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 1rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(250, 246, 238, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(200, 128, 10, 0.12);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(35,16,8,0.08); }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem; font-weight: 600;
+      color: var(--deep); letter-spacing: 0.02em;
+    }
+    .logo span { color: var(--ochre); }
+
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-phone {
+      font-size: 0.82rem; color: var(--warm);
+      text-decoration: none; font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    .nav-wa {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--green); color: #fff;
+      padding: 0.48rem 1.1rem; border-radius: 2rem;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.02em;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .nav-wa:hover { opacity: 0.88; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      position: relative; display: flex; align-items: flex-end;
+      padding-bottom: 7rem; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/hostel-1.jpg') center 30% / cover no-repeat;
+      transform: scale(1.06);
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(35,16,8,0.08) 0%,
+        rgba(35,16,8,0.18) 35%,
+        rgba(35,16,8,0.78) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 860px; padding: 0 2.5rem;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ochre-light);
+      margin-bottom: 1.1rem;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 6.5vw, 5.6rem);
+      font-weight: 400; line-height: 1.08; color: #fff;
+      margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+    .hero h1 em { font-style: italic; color: var(--ochre-light); }
+    .hero-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.82);
+      max-width: 500px; margin-bottom: 2.2rem; font-weight: 300;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s;
+    }
+    .hero-ctas {
+      display: flex; gap: 0.9rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.8s;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--green); color: #fff;
+      padding: 0.82rem 1.8rem; border-radius: 3rem;
+      font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em;
+      text-decoration: none; transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+
+    .btn-call {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.15); color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      padding: 0.82rem 1.8rem; border-radius: 3rem;
+      font-size: 0.92rem; font-weight: 400;
+      text-decoration: none; backdrop-filter: blur(8px);
+      transition: background 0.2s;
+    }
+    .btn-call:hover { background: rgba(255,255,255,0.25); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--ochre); color: #fff;
+      padding: 1.3rem 2rem;
+      display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
+    }
+    .trust-item {
+      text-align: center; padding: 0.4rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.25);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem; font-weight: 600; line-height: 1;
+    }
+    .trust-label {
+      font-size: 0.7rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      opacity: 0.85; margin-top: 0.2rem;
+    }
+
+    /* ── PROBLEM SECTION ── */
+    .problem {
+      background: var(--deep); color: #fff;
+      padding: 6rem 2.5rem; text-align: center;
+    }
+    .problem-inner { max-width: 680px; margin: 0 auto; }
+    .problem .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ochre-light); margin-bottom: 1rem;
+    }
+    .problem h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400;
+      line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    .problem h2 em { font-style: italic; color: var(--ochre-light); }
+    .problem p {
+      font-size: 1rem; color: rgba(255,255,255,0.65);
+      line-height: 1.85; margin-bottom: 1rem;
+    }
+    .problem-divider {
+      width: 40px; height: 3px;
+      background: var(--ochre); margin: 2rem auto 0;
+    }
+
+    /* ── SECTIONS BASE ── */
+    section.padded { padding: 6rem 2.5rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 0.65rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 400; line-height: 1.15; color: var(--deep);
+      margin-bottom: 1.2rem;
+    }
+    .section-title em { font-style: italic; color: var(--terra); }
+
+    /* ── ORNAMENT ── */
+    .ornament {
+      display: flex; align-items: center; gap: 0.8rem; margin: 1.4rem 0;
+    }
+    .orn-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(200,128,10,0.4), transparent); }
+    .orn-dot { width: 5px; height: 5px; background: var(--ochre); transform: rotate(45deg); }
+
+    /* ── STORY ── */
+    .story-bg { background: var(--parch); }
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .story-photos { position: relative; height: 480px; }
+    .sp-main {
+      position: absolute; top: 0; left: 0;
+      width: 72%; height: 78%;
+      object-fit: cover; border-radius: 4px;
+      box-shadow: 0 24px 64px rgba(35,16,8,0.22);
+    }
+    .sp-accent {
+      position: absolute; bottom: 0; right: 0;
+      width: 52%; height: 52%;
+      object-fit: cover; border-radius: 4px;
+      box-shadow: 0 16px 48px rgba(35,16,8,0.2);
+      border: 5px solid var(--cream);
+    }
+    .sp-badge {
+      position: absolute; bottom: 46%; left: 56%;
+      transform: translate(-50%, 50%);
+      width: 86px; height: 86px; border-radius: 50%;
+      background: var(--ochre); color: #fff;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-shadow: 0 8px 28px rgba(200,128,10,0.45); z-index: 2;
+    }
+    .sp-badge-n { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; line-height: 1; }
+    .sp-badge-t { font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.9; }
+
+    .story-text p { font-size: 1rem; color: var(--warm); line-height: 1.85; margin-bottom: 1.1rem; }
+    .story-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem; font-style: italic; color: var(--terra);
+      border-left: 3px solid var(--ochre);
+      padding-left: 1.4rem; margin: 1.8rem 0; line-height: 1.5;
+    }
+
+    /* ── PILLARS ── */
+    .pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.8rem; margin-top: 3rem; }
+    .pillar {
+      background: #fff; border-radius: 8px; padding: 2.4rem 2rem;
+      border: 1px solid rgba(200,128,10,0.1);
+      position: relative; overflow: hidden;
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .pillar:hover { transform: translateY(-5px); box-shadow: 0 20px 56px rgba(35,16,8,0.09); }
+    .pillar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--ochre); }
+    .pillar-icon { font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
+    .pillar h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.65rem; }
+    .pillar p { font-size: 0.88rem; color: var(--muted); line-height: 1.72; }
+
+    /* ── MEALS ── */
+    .meals-bg { background: var(--deep); }
+    .meals-bg .eyebrow { color: var(--ochre-light); }
+    .meals-bg .section-title { color: #fff; }
+    .meals-bg .section-title em { color: var(--ochre-light); }
+    .meals-sub { color: rgba(255,255,255,0.55); font-size: 0.92rem; max-width: 520px; margin-top: 0.4rem; }
+
+    .meals-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4rem; margin-top: 2.8rem; }
+    .meal-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 8px; padding: 2rem 1.5rem;
+      transition: background 0.2s;
+    }
+    .meal-card:hover { background: rgba(255,255,255,0.09); }
+    .meal-time { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ochre-light); margin-bottom: 0.6rem; }
+    .meal-name { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 500; color: #fff; margin-bottom: 0.7rem; line-height: 1.2; }
+    .meal-desc { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .meal-tag {
+      display: inline-block; margin-top: 1.1rem;
+      font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.22rem 0.7rem; border-radius: 2rem;
+      background: rgba(200,128,10,0.18); color: var(--ochre-light);
+      border: 1px solid rgba(200,128,10,0.28);
+    }
+
+    /* ── FACILITIES ── */
+    .facilities-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.1rem; margin-top: 2.5rem; }
+    .fac-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.3rem; background: #fff; border-radius: 7px;
+      border: 1px solid rgba(200,128,10,0.1);
+    }
+    .fac-icon { font-size: 1.35rem; min-width: 36px; text-align: center; margin-top: 0.1rem; }
+    .fac-text h4 { font-size: 1.05rem; font-weight: 500; color: var(--deep); margin-bottom: 0.18rem; }
+    .fac-text p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── LOCATIONS ── */
+    .loc-bg { background: var(--parch); }
+    .loc-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.4rem; margin-top: 2.5rem; }
+    .loc-card {
+      background: #fff; border-radius: 7px; padding: 1.8rem 2rem;
+      border-left: 4px solid var(--ochre);
+      box-shadow: 0 4px 18px rgba(35,16,8,0.05);
+    }
+    .loc-n { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(200,128,10,0.15); line-height: 1; margin-bottom: 0.4rem; }
+    .loc-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--deep); }
+
+    /* ── RULES ── */
+    .rules-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; margin-top: 2.5rem; }
+    .rule-group {
+      padding: 1.6rem 1.5rem; background: #fff; border-radius: 7px;
+      border: 1px solid rgba(200,128,10,0.1);
+    }
+    .rule-group h4 {
+      font-size: 1.15rem; font-weight: 500; color: var(--deep);
+      margin-bottom: 0.9rem; padding-bottom: 0.55rem;
+      border-bottom: 1px solid var(--parch);
+    }
+    .rule-group ul { list-style: none; }
+    .rule-group li {
+      font-size: 0.82rem; color: var(--muted);
+      padding: 0.28rem 0 0.28rem 1rem; position: relative; line-height: 1.5;
+    }
+    .rule-group li::before { content: '·'; position: absolute; left: 0; color: var(--ochre); font-size: 1.1rem; line-height: 1.3; }
+
+    /* ── SCARCITY CTA ── */
+    .scarcity {
+      background: var(--ochre); color: #fff;
+      padding: 3rem 2.5rem; text-align: center;
+    }
+    .scarcity h3 { font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 400; margin-bottom: 0.6rem; }
+    .scarcity p { font-size: 0.95rem; opacity: 0.85; margin-bottom: 1.8rem; }
+    .scarcity-ctas { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #fff; color: var(--ochre);
+      padding: 0.82rem 1.8rem; border-radius: 3rem;
+      font-size: 0.92rem; font-weight: 500; text-decoration: none;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(35,16,8,0.2); }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.6);
+      padding: 0.82rem 1.8rem; border-radius: 3rem;
+      font-size: 0.92rem; font-weight: 400; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+
+    /* ── CONTACT ── */
+    .contact-bg { background: var(--terra); color: #fff; text-align: center; }
+    .contact-bg .eyebrow { color: rgba(255,255,255,0.65); }
+    .contact-bg .section-title { color: #fff; }
+    .contact-bg .section-title em { color: rgba(255,255,255,0.75); font-style: italic; }
+    .contact-sub { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.8; }
+    .contact-ctas { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .phones { display: flex; gap: 1.8rem; justify-content: center; flex-wrap: wrap; }
+    .phone-link { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.92rem; transition: color 0.2s; }
+    .phone-link:hover { color: #fff; }
+
+    /* ── FLOATING WHATSAPP ── */
+    .wa-float {
+      position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: waPulse 2.5s ease-in-out infinite 4s;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep); color: rgba(255,255,255,0.42);
+      padding: 1.8rem 2rem; text-align: center; font-size: 0.78rem;
+    }
+    footer strong { color: rgba(255,255,255,0.75); }
+    footer a { color: rgba(255,255,255,0.42); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-in {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 4px 18px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 4px 28px rgba(37,211,102,0.7), 0 0 0 10px rgba(37,211,102,0.12); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-photos { height: 320px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .meals-grid { grid-template-columns: 1fr 1fr; }
+      .rules-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0.9rem 1.4rem; }
+      .nav-phone { display: none; }
+      .hero-content { padding: 0 1.4rem; }
+      section.padded { padding: 4rem 1.4rem; }
+      .problem { padding: 4rem 1.4rem; }
+      .trust-item { padding: 0.4rem 1.2rem; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+      .trust-item:last-child { border-bottom: none; }
+      .loc-grid { grid-template-columns: 1fr; }
+      .facilities-grid { grid-template-columns: 1fr; }
+      .meals-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo">Notting<span>ville</span></div>
+  <div class="nav-right">
+    <a href="tel:+919126660502" class="nav-phone">+91 91266 60502</a>
+    <a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="nav-wa" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-badge">Girls' Hostel &nbsp;·&nbsp; Kolkata</p>
+    <h1>Your daughter deserves<br>a <em>home,</em> not just<br>a hostel.</h1>
+    <p class="hero-sub">Safe, well-fed, and genuinely cared for — by three mothers who built this place for daughters just like hers.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="btn-wa" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enquire on WhatsApp
+      </a>
+      <a href="tel:+919126660502" class="btn-call">&#x260E;&#xFE0F; Call Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-num">60+</div><div class="trust-label">Beds Available</div></div>
+  <div class="trust-item"><div class="trust-num">4</div><div class="trust-label">Meals Every Day</div></div>
+  <div class="trust-item"><div class="trust-num">24×7</div><div class="trust-label">CCTV &amp; Safety</div></div>
+  <div class="trust-item"><div class="trust-num">3</div><div class="trust-label">Mothers Running It</div></div>
+  <div class="trust-item"><div class="trust-num">4</div><div class="trust-label">Locations</div></div>
+</div>
+
+<!-- PROBLEM AGITATION -->
+<div class="problem">
+  <div class="problem-inner fade-in">
+    <p class="eyebrow">We Understand</p>
+    <h2>Sending her away is <em>hard.</em><br>Finding someone who truly cares is harder.</h2>
+    <p>Most hostels offer a bed and a lock. What a parent actually needs is peace of mind — knowing their daughter is safe, properly fed, and surrounded by people who genuinely look out for her.</p>
+    <p>That's exactly why three mothers built Nottingville. Not as a business. As the hostel they would want for their own daughters.</p>
+    <div class="problem-divider"></div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="padded story-bg">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-photos fade-in">
+        <img src="images/hostel-2.jpg" alt="Nottingville Hostel building, Kolkata" class="sp-main" />
+        <img src="images/hostel-3.jpg" alt="Nottingville Hostel exterior" class="sp-accent" />
+        <div class="sp-badge">
+          <span class="sp-badge-n">3</span>
+          <span class="sp-badge-t">Mothers</span>
+        </div>
+      </div>
+      <div class="story-text fade-in">
+        <p class="eyebrow">Our Story</p>
+        <h2 class="section-title">Born from a<br><em>mother's</em> heart</h2>
+        <div class="ornament"><div class="orn-line"></div><div class="orn-dot"></div><div class="orn-line"></div></div>
+        <blockquote class="story-quote">"A hostel built by mothers — not businessmen."</blockquote>
+        <p>Nottingville was founded by three mothers, each with daughters of their own. They knew that what young girls away from home truly need isn't just four walls — it's safety, warmth, and someone who notices when something's wrong.</p>
+        <p>Every rule, every meal, every curfew at Nottingville was designed with a mother's eye. When your daughter walks in, she doesn't just find accommodation. She finds a home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 PILLARS -->
+<section class="padded">
+  <div class="container">
+    <p class="eyebrow fade-in">Why Nottingville</p>
+    <h2 class="section-title fade-in">Three things parents<br>care about <em>most</em></h2>
+    <div class="pillars-grid">
+      <div class="pillar fade-in">
+        <span class="pillar-icon">🛡️</span>
+        <h3>Safety First</h3>
+        <p>24×7 CCTV across all premises. Daily attendance registers. Wardens who accompany students after dark. Immediate medical support always on call. Your daughter is never unsupervised.</p>
+      </div>
+      <div class="pillar fade-in">
+        <span class="pillar-icon">🏠</span>
+        <h3>Comfort &amp; Space</h3>
+        <p>60 spacious, airy rooms in both AC and Non-AC configurations. 24-hour running water. Clean, organized, and designed to feel genuinely homely — not institutional.</p>
+      </div>
+      <div class="pillar fade-in">
+        <span class="pillar-icon">🍱</span>
+        <h3>Real Nourishment</h3>
+        <p>Four fresh, balanced meals every single day. Home-style cooking prepared with the freshest ingredients. Because a well-fed daughter is a thriving daughter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEALS -->
+<section class="padded meals-bg">
+  <div class="container">
+    <p class="eyebrow fade-in">Food &amp; Nutrition</p>
+    <h2 class="section-title fade-in">Four meals, <em>every day</em></h2>
+    <p class="meals-sub fade-in">Prepared fresh daily with home-style care. Because a well-nourished body fuels a bright mind.</p>
+    <div class="meals-grid">
+      <div class="meal-card fade-in">
+        <div class="meal-time">Morning</div>
+        <div class="meal-name">Breakfast</div>
+        <div class="meal-desc">Rotating daily menu: Luchi, Puri, Roti, Idli, or Maggi. A proper hearty start — never skipped.</div>
+        <div class="meal-tag">Rotating Menu</div>
+      </div>
+      <div class="meal-card fade-in">
+        <div class="meal-time">Afternoon</div>
+        <div class="meal-name">Lunch</div>
+        <div class="meal-desc">Balanced meal with rice, dal, and sides. 6 days non-vegetarian (chicken, fish, egg) and 1 day vegetarian.</div>
+        <div class="meal-tag">Non-veg Included</div>
+      </div>
+      <div class="meal-card fade-in">
+        <div class="meal-time">Evening</div>
+        <div class="meal-name">Snacks &amp; Tea</div>
+        <div class="meal-desc">Evening refreshments with tea to recharge through study hours and keep energy levels up.</div>
+        <div class="meal-tag">Daily</div>
+      </div>
+      <div class="meal-card fade-in">
+        <div class="meal-time">Night</div>
+        <div class="meal-name">Dinner</div>
+        <div class="meal-desc">A comforting home-style dinner every evening. Fresh, hygienic, and prepared with genuine care.</div>
+        <div class="meal-tag">Home Cooked</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="padded">
+  <div class="container">
+    <p class="eyebrow fade-in">Facilities</p>
+    <h2 class="section-title fade-in">Everything she <em>needs</em></h2>
+    <div class="facilities-grid">
+      <div class="fac-item fade-in">
+        <div class="fac-icon">❄️</div>
+        <div class="fac-text"><h4>AC &amp; Non-AC Rooms</h4><p>Choose the comfort level that suits you. All rooms are spacious and airy.</p></div>
+      </div>
+      <div class="fac-item fade-in">
+        <div class="fac-icon">💧</div>
+        <div class="fac-text"><h4>24/7 Running Water</h4><p>Uninterrupted water supply around the clock — never a shortage.</p></div>
+      </div>
+      <div class="fac-item fade-in">
+        <div class="fac-icon">📷</div>
+        <div class="fac-text"><h4>CCTV Surveillance</h4><p>24×7 camera coverage across all common areas. Complete, continuous security.</p></div>
+      </div>
+      <div class="fac-item fade-in">
+        <div class="fac-icon">🏥</div>
+        <div class="fac-text"><h4>Immediate Medical Care</h4><p>Medical support available without delay. Health emergencies are never left unattended.</p></div>
+      </div>
+      <div class="fac-item fade-in">
+        <div class="fac-icon">📋</div>
+        <div class="fac-text"><h4>Daily Attendance</h4><p>Personal attention with daily attendance registers. Parents always in the loop.</p></div>
+      </div>
+      <div class="fac-item fade-in">
+        <div class="fac-icon">🌙</div>
+        <div class="fac-text"><h4>Night Warden Escort</h4><p>Wardens accompany students after dark. Safety is never left to chance.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="padded loc-bg">
+  <div class="container">
+    <p class="eyebrow fade-in">Where We Are</p>
+    <h2 class="section-title fade-in">Four <em>locations</em><br>across Kolkata</h2>
+    <div class="loc-grid">
+      <div class="loc-card fade-in">
+        <div class="loc-n">01</div>
+        <div class="loc-name">10/1 Sarojini Naidu Path</div>
+      </div>
+      <div class="loc-card fade-in">
+        <div class="loc-n">02</div>
+        <div class="loc-name">10/3 Sarojini Naidu Path</div>
+      </div>
+      <div class="loc-card fade-in">
+        <div class="loc-n">03</div>
+        <div class="loc-name">D45 Uday Shankar</div>
+      </div>
+      <div class="loc-card fade-in">
+        <div class="loc-n">04</div>
+        <div class="loc-name">55 Tarashankar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="padded">
+  <div class="container">
+    <p class="eyebrow fade-in">Hostel Rules</p>
+    <h2 class="section-title fade-in">Structure that <em>protects</em></h2>
+    <p style="color:var(--muted); max-width:540px; font-size:0.88rem; margin-top:0.4rem;" class="fade-in">Our rules exist to protect every resident. Designed with a mother's wisdom — firm, fair, and caring.</p>
+    <div class="rules-grid">
+      <div class="rule-group fade-in">
+        <h4>Fees &amp; Payment</h4>
+        <ul>
+          <li>2 months' rent payable at admission</li>
+          <li>Monthly rent due by 10th of the month</li>
+          <li>&#8377;100/day late fee after the 10th</li>
+          <li>30-day notice required before vacating</li>
+        </ul>
+      </div>
+      <div class="rule-group fade-in">
+        <h4>Curfew &amp; Leave</h4>
+        <ul>
+          <li>Gate closes at 7:00 PM sharp</li>
+          <li>Gate opens at 6:00 AM</li>
+          <li>All leave requires prior permission</li>
+          <li>Register entry mandatory for all outings</li>
+        </ul>
+      </div>
+      <div class="rule-group fade-in">
+        <h4>Conduct &amp; Safety</h4>
+        <ul>
+          <li>No guests or visitors inside rooms</li>
+          <li>Parents may visit with prior permission</li>
+          <li>No alcohol, smoking, or drugs</li>
+          <li>No outside food or personal cooking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCARCITY CTA -->
+<div class="scarcity">
+  <h3 class="serif fade-in">Only 60 beds available.<br>Seats fill every session.</h3>
+  <p class="fade-in">Don't wait until it's full. Reach out today and we'll guide you through the admission process.</p>
+  <div class="scarcity-ctas fade-in">
+    <a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20book%20a%20bed%20at%20Nottingville%20Hostel." class="btn-white" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Reserve a Bed on WhatsApp
+    </a>
+    <a href="tel:+919126660502" class="btn-outline-white">&#x260E;&#xFE0F; Call +91 91266 60502</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="padded contact-bg" id="contact">
+  <div class="container">
+    <p class="eyebrow fade-in">Get In Touch</p>
+    <h2 class="section-title fade-in">Ready to give her<br>a real <em>home?</em></h2>
+    <p class="contact-sub fade-in">Our team — mothers themselves — are ready to answer every question and make the admission process as easy as possible.</p>
+    <div class="contact-ctas fade-in">
+      <a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="btn-wa" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Send WhatsApp Enquiry
+      </a>
+    </div>
+    <div class="phones fade-in">
+      <a href="tel:+919126660502" class="phone-link">+91 91266 60502</a>
+      <a href="tel:+917908978959" class="phone-link">+91 79089 78959</a>
+      <a href="tel:+918436150885" class="phone-link">+91 84361 50885</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Nottingville Hostel</strong> &nbsp;·&nbsp; Girls' Hostel, Kolkata &nbsp;·&nbsp; <a href="https://nottingville.space">nottingville.space</a></p>
+  <p style="margin-top:0.5rem;">&copy; 2025 Nottingville. A hostel run by mothers, for daughters.</p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Nottingville%20Hostel." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Nav shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Parallax on hero bg
+  const heroBg = document.getElementById('heroBg');
+  window.addEventListener('scroll', () => {
+    heroBg.style.transform = `scale(1.06) translateY(${window.scrollY * 0.28}px)`;
+  }, { passive: true });
+
+  // Scroll fade-in
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 70);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
