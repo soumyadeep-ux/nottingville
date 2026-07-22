@@ -4,12 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nottingville Hostel — Safe Girls' Hostel in Durgapur</title>
-  <meta name="description" content="Nottingville is a girls' hostel in Durgapur run by three mothers for daughters. 60 beds, 4 meals daily, 24x7 CCTV, AC & Non-AC rooms. Sarojini Naidu Path, Durgapur." />
-  <meta name="keywords" content="girls hostel Durgapur, ladies hostel Durgapur, student hostel Durgapur, safe hostel for girls, Nottingville hostel" />
+  <meta name="description" content="Nottingville is a girls hostel and PG in Durgapur — room rent from ₹6,000/month. 60 beds, 4 meals daily, 24x7 CCTV, AC & Non-AC rooms. Safe paying guest accommodation near Adhyayan, Allen, Aakash coaching centres." />
+  <meta name="keywords" content="girls hostel Durgapur, PG in Durgapur, paying guest Durgapur, ladies hostel Durgapur, student hostel Durgapur, room rent Durgapur, safe hostel for girls, Nottingville hostel, hostel near coaching Durgapur" />
   <meta property="og:title" content="Nottingville — A Hostel Run by Mothers, for Daughters" />
   <meta property="og:description" content="Safe, homely girls' hostel in Durgapur. 60 beds, 4 meals daily, 24x7 security. Run by three mothers who understand what daughters truly need." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nottingville.space" />
+  <meta property="og:image" content="https://nottingville.space/images/hostel-1.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Nottingville Hostel" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nottingville — Safe Girls' Hostel in Durgapur" />
+  <meta name="twitter:description" content="Run by 3 mothers, for daughters. 60 beds, 4 meals/day, 24x7 CCTV. Near Adhyayan, PW, Aakash, Allen coaching centres." />
+  <meta name="twitter:image" content="https://nottingville.space/images/hostel-1.webp" />
+  <meta name="theme-color" content="#231008" />
   <link rel="canonical" href="https://nottingville.space" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="facebook-domain-verification" content="g2yu06ytpazpcpr953cngup000ebkk" />
+
+  <!-- Google Ads tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11090833551"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-11090833551');
+
+    // Google Ads conversion helpers
+    function gads_phone_conversion() {
+      gtag('event', 'conversion', { 'send_to': 'AW-11090833551/3bdACMC1iIocEI_hwqgp' });
+    }
+    function gads_whatsapp_conversion() {
+      gtag('event', 'conversion', { 'send_to': 'AW-11090833551/RxJuCJffkoocEI_hwqgp' });
+    }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -69,11 +101,12 @@
       font-size: 0.82rem; color: var(--warm);
       text-decoration: none; font-weight: 400;
       letter-spacing: 0.01em;
+      min-height: 48px; display: inline-flex; align-items: center;
     }
     .nav-wa {
       display: inline-flex; align-items: center; gap: 0.4rem;
       background: var(--green); color: #fff;
-      padding: 0.48rem 1.1rem; border-radius: 2rem;
+      padding: 0.48rem 1.1rem; border-radius: 2rem; min-height: 48px;
       font-size: 0.82rem; font-weight: 500; letter-spacing: 0.02em;
       text-decoration: none; transition: opacity 0.2s;
     }
@@ -87,7 +120,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('images/hostel-1.jpg') center 30% / cover no-repeat;
+      background: url('images/hostel-1.webp') center 30% / cover no-repeat;
       transform: scale(1.06);
       will-change: transform;
       filter: grayscale(100%) brightness(0.65);
@@ -374,8 +407,35 @@
     .contact-sub { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.8; }
     .contact-ctas { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
     .phones { display: flex; gap: 1.8rem; justify-content: center; flex-wrap: wrap; }
-    .phone-link { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.92rem; transition: color 0.2s; }
+    .phone-link { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.92rem; transition: color 0.2s; min-height: 48px; display: inline-flex; align-items: center; }
     .phone-link:hover { color: #fff; }
+
+    /* ── SEO INTRO ── */
+    .seo-intro {
+      text-align: center; padding: 2rem 2.5rem;
+      background: var(--cream);
+    }
+    .seo-intro p {
+      max-width: 720px; margin: 0 auto;
+      font-size: 0.88rem; color: var(--warm);
+      line-height: 1.85;
+    }
+
+    /* ── FAQ ── */
+    .faq-grid { max-width: 720px; margin: 2.5rem auto 0; }
+    .faq-item { border-bottom: 1px solid rgba(200,128,10,0.18); }
+    .faq-item summary {
+      padding: 1.2rem 0; cursor: pointer;
+      font-weight: 500; font-size: 1rem; color: var(--deep);
+      list-style: none; display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-size: 1.4rem; color: var(--ochre); font-weight: 300; transition: transform 0.2s; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-answer {
+      padding: 0 0 1.4rem;
+      font-size: 0.92rem; color: var(--warm); line-height: 1.8;
+    }
 
     /* ── FLOATING WHATSAPP ── */
     .wa-float {
@@ -526,7 +586,160 @@
       .meals-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.4rem; }
     }
+
+    /* ── LEAD FORM MODAL ── */
+    .lead-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(35,16,8,0.6); backdrop-filter: blur(4px);
+      justify-content: center; align-items: flex-start;
+      padding: 1rem; overflow-y: auto; -webkit-overflow-scrolling: touch;
+    }
+    .lead-overlay.open { display: flex; }
+    .lead-modal {
+      background: var(--cream); border-radius: 16px; padding: 1.8rem 1.5rem 1.5rem;
+      max-width: 400px; width: 100%; position: relative;
+      box-shadow: 0 24px 64px rgba(35,16,8,0.25);
+      margin: auto;
+    }
+    .lead-modal::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--ochre), var(--terra)); border-radius: 16px 16px 0 0;
+    }
+    .lead-close {
+      position: absolute; top: 10px; right: 14px; background: none; border: none;
+      font-size: 1.5rem; color: var(--muted); cursor: pointer; line-height: 1;
+    }
+    .lead-modal h3 {
+      font-size: 1.4rem; color: var(--deep); margin-bottom: 0.15rem;
+    }
+    .lead-modal .lead-sub {
+      font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.4;
+    }
+    .lead-modal label {
+      display: block; font-size: 0.78rem; font-weight: 500; color: var(--warm);
+      margin-bottom: 0.2rem; margin-top: 0.7rem;
+    }
+    .lead-modal label:first-of-type { margin-top: 0; }
+    .lead-modal input, .lead-modal select {
+      width: 100%; padding: 0.55rem 0.75rem; border: 1.5px solid #d9cfc0;
+      border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+      background: #fff; color: var(--deep); outline: none; transition: border 0.2s;
+    }
+    .lead-modal input:focus, .lead-modal select:focus { border-color: var(--ochre); }
+    .lead-modal .lead-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.75rem;
+    }
+    .lead-modal .lead-submit {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; margin-top: 1.2rem; padding: 0.75rem;
+      background: #25D366; color: #fff; border: none; border-radius: 50px;
+      font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .lead-modal .lead-submit:hover { background: #1fba59; }
+    .lead-modal .lead-skip {
+      display: block; text-align: center; margin-top: 0.6rem;
+      font-size: 0.8rem; color: var(--muted); cursor: pointer;
+      background: none; border: none; text-decoration: underline;
+      font-family: 'DM Sans', sans-serif;
+    }
+    @media (max-width: 480px) {
+      .lead-modal { padding: 1.5rem 1.2rem 1.2rem; border-radius: 12px; }
+      .lead-modal h3 { font-size: 1.25rem; }
+      .lead-modal .lead-row { grid-template-columns: 1fr; }
+    }
   </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Nottingville Hostel",
+    "description": "Girls' hostel in Durgapur run by three mothers for daughters. 60 beds, 4 meals daily, 24x7 CCTV, AC & Non-AC rooms. Ideal for students preparing for NEET, JEE, BITSAT, CUET near Adhyayan, Physics Wallah, Aakash, and Allen coaching centres.",
+    "url": "https://nottingville.space",
+    "image": "https://nottingville.space/images/hostel-1.webp",
+    "telephone": ["+91-79089-78959", "+91-91266-60502", "+91-84361-50885"],
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "10/1 Sarojini Naidu Path",
+        "addressLocality": "Durgapur",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "10/3 Sarojini Naidu Path",
+        "addressLocality": "Durgapur",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "D45 Uday Shankar",
+        "addressLocality": "Durgapur",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "55 Tarashankar",
+        "addressLocality": "Durgapur",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      }
+    ],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 23.5204,
+      "longitude": 87.3119
+    },
+    "numberOfRooms": 60,
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "AC & Non-AC Rooms", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "4 Meals Daily", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "24x7 CCTV Surveillance", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "24-Hour Running Water", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Medical Support", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Night Warden Escort", "value": true}
+    ],
+    "openingHours": "Mo-Su 06:00-19:00",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Is Nottingville a hostel or a PG?", "acceptedAnswer": {"@type": "Answer", "text": "Both. Nottingville works as a girls hostel in Durgapur and as a PG (paying guest) accommodation with full supervision — wardens, CCTV, curfew, and four meals a day."}},
+      {"@type": "Question", "name": "What is the room rent at Nottingville?", "acceptedAnswer": {"@type": "Answer", "text": "Room rent starts at ₹6,000 per month for non-AC rooms. AC rooms cost more. This includes 4 meals daily, 24/7 security, housekeeping, and all utilities."}},
+      {"@type": "Question", "name": "Is this a girls-only hostel?", "acceptedAnswer": {"@type": "Answer", "text": "The main locations are a dedicated girls hostel. We also have a separate apartment for boys with the same safety standards."}},
+      {"@type": "Question", "name": "Do you provide meals or is there a mess facility?", "acceptedAnswer": {"@type": "Answer", "text": "All four meals are provided in-house — breakfast, lunch, evening snacks with tea, and dinner. Full mess facility included in rent with home-cooked food daily."}},
+      {"@type": "Question", "name": "Is it safe for students living away from home?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. 24/7 CCTV, resident wardens, 7 PM curfew, daily attendance registers, and night escort. Run by three mothers with the highest safety standards."}},
+      {"@type": "Question", "name": "How close is Nottingville to coaching centres?", "acceptedAnswer": {"@type": "Answer", "text": "Within walking distance of Adhyayan Durgapur, Physics Wallah, Aakash Institute, and Allen Career Institute on Sarojini Naidu Path."}}
+    ]
+  }
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '558125623033328');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=558125623033328&ev=PageView&noscript=1"
+  /></noscript>
 </head>
 <body>
 
@@ -534,8 +747,8 @@
 <nav id="nav">
   <div class="logo">Notting<span>ville</span></div>
   <div class="nav-right">
-    <a href="tel:+919126660502" class="nav-phone">+91 91266 60502</a>
-    <a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="nav-wa" target="_blank" rel="noopener">
+    <a href="tel:+917908978959" class="nav-phone">+91 79089 78959</a>
+    <a href="https://wa.me/917908978959?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="nav-wa" target="_blank" rel="noopener">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp Us
     </a>
@@ -549,13 +762,13 @@
   <div class="hero-content">
     <p class="hero-badge">Girls' Hostel &nbsp;·&nbsp; Durgapur</p>
     <h1>Your daughter deserves<br>a <em>home,</em> not just<br>a hostel.</h1>
-    <p class="hero-sub">Focus on cracking IIT, NEET, or your dream college. We take care of everything else — food, safety, and a home that lets you study in peace.</p>
+    <p class="hero-sub">Focus on cracking NEET, JEE, or your dream entrance. We take care of everything else — food, safety, and a home that lets you study in peace.</p>
     <div class="hero-ctas">
-      <a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="btn-wa" target="_blank" rel="noopener">
+      <a href="https://wa.me/917908978959?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="btn-wa" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Enquire on WhatsApp
       </a>
-      <a href="tel:+919126660502" class="btn-call">&#x260E;&#xFE0F; Call Now</a>
+      <a href="tel:+917908978959" class="btn-call">&#x260E;&#xFE0F; Call Now</a>
     </div>
   </div>
 </div>
@@ -567,6 +780,12 @@
   <div class="trust-item"><div class="trust-num">24×7</div><div class="trust-label">CCTV &amp; Safety</div></div>
   <div class="trust-item"><div class="trust-num">3</div><div class="trust-label">Mothers Running It</div></div>
   <div class="trust-item"><div class="trust-num">4</div><div class="trust-label">Locations</div></div>
+  <div class="trust-item"><div class="trust-num">₹6K</div><div class="trust-label">Starting / Month</div></div>
+</div>
+
+<!-- SEO INTRO -->
+<div class="seo-intro">
+  <p>Nottingville is a safe hostel and PG in Durgapur — a trusted ladies hostel and paying guest accommodation for students preparing for NEET, JEE, and other competitive exams. Whether you're looking for a girls PG or a girls hostel in Durgapur with 4 daily meals, 24/7 CCTV, and a 7 PM curfew — this student hostel has you covered across four locations on Sarojini Naidu Path. Room rent starts from ₹6,000/month. Boys hostel also available — enquire on WhatsApp.</p>
 </div>
 
 <!-- PROBLEM AGITATION -->
@@ -574,7 +793,7 @@
   <div class="problem-inner fade-in">
     <p class="eyebrow">We Understand</p>
     <h2>Your dream college deserves your <em>full focus.</em><br>Not hostel stress.</h2>
-    <p>Every hour spent worrying about food, safety, or commuting to coaching is an hour not spent studying. Nottingville removes all of that — so students preparing for IIT JEE, NEET, and premier college entrances can focus entirely on what matters.</p>
+    <p>Every hour spent worrying about food, safety, or commuting to coaching is an hour not spent studying. Nottingville removes all of that — so students preparing for NEET, JEE Main, JEE Advanced, and other entrance exams can focus entirely on what matters.</p>
     <p>For parents: three mothers built this hostel because they wanted exactly this for their own daughters — safety, care, and the right environment to thrive.</p>
     <div class="problem-divider"></div>
   </div>
@@ -585,8 +804,8 @@
   <div class="container">
     <div class="story-grid">
       <div class="story-photos fade-in">
-        <img src="images/hostel-2.jpg" alt="Nottingville Hostel building, Durgapur" class="sp-main" />
-        <img src="images/hostel-3.jpg" alt="Nottingville Hostel exterior" class="sp-accent" />
+        <img src="images/hostel-2.webp" alt="Nottingville Hostel building, Durgapur" class="sp-main" loading="lazy" />
+        <img src="images/hostel-3.webp" alt="Nottingville Hostel exterior" class="sp-accent" loading="lazy" />
         <div class="sp-badge">
           <span class="sp-badge-n">3</span>
           <span class="sp-badge-t">Mothers</span>
@@ -736,22 +955,29 @@
         <div class="institute-card fade-in">
           <div class="inst-icon">🎯</div>
           <div>
-            <div class="inst-name">FIITJEE Durgapur</div>
-            <div class="inst-note">JEE Main &amp; Advanced · Engineering Entrance</div>
+            <div class="inst-name">Adhyayan Durgapur</div>
+            <div class="inst-note">NEET UG · JEE Main · JEE Advanced</div>
+          </div>
+        </div>
+        <div class="institute-card fade-in">
+          <div class="inst-icon">🚀</div>
+          <div>
+            <div class="inst-name">Physics Wallah</div>
+            <div class="inst-note">NEET UG · JEE Main · Foundation Courses</div>
           </div>
         </div>
         <div class="institute-card fade-in">
           <div class="inst-icon">📚</div>
           <div>
             <div class="inst-name">Aakash Institute</div>
-            <div class="inst-note">NEET · JEE · AIIMS · Foundation Courses</div>
+            <div class="inst-note">NEET UG · JEE Main · Foundation Courses</div>
           </div>
         </div>
         <div class="institute-card fade-in">
           <div class="inst-icon">⭐</div>
           <div>
             <div class="inst-name">Allen Career Institute</div>
-            <div class="inst-note">JEE · NEET · Pre-foundation</div>
+            <div class="inst-note">JEE Main · NEET UG · Pre-foundation</div>
           </div>
         </div>
         <div class="institute-card fade-in">
@@ -766,12 +992,12 @@
       <div class="fade-in">
         <div class="exam-target-label">Students here are preparing for</div>
         <div class="exam-pill-group">
-          <span class="exam-pill accent">IIT JEE</span>
-          <span class="exam-pill accent">NEET</span>
-          <span class="exam-pill">AIIMS</span>
+          <span class="exam-pill accent">NEET UG</span>
+          <span class="exam-pill accent">JEE Main</span>
+          <span class="exam-pill">JEE Advanced</span>
+          <span class="exam-pill">BITSAT</span>
+          <span class="exam-pill">CUET</span>
           <span class="exam-pill">NIT</span>
-          <span class="exam-pill">WBJEE</span>
-          <span class="exam-pill">BITS Pilani</span>
           <span class="exam-pill">Top Medical Colleges</span>
           <span class="exam-pill">Defence Exams</span>
         </div>
@@ -834,12 +1060,63 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="padded">
+  <div class="container">
+    <p class="eyebrow fade-in">Common Questions</p>
+    <h2 class="section-title fade-in">Everything parents <em>ask</em></h2>
+    <div class="faq-grid">
+
+      <details class="faq-item fade-in">
+        <summary>Is Nottingville a hostel or a PG?</summary>
+        <div class="faq-answer">Both, really. Nottingville works as a girls hostel in Durgapur and as a PG (paying guest) accommodation. The difference from a typical PG in Durgapur is that we provide full supervision — wardens, CCTV, curfew, and four meals a day. Think of it as a managed student hostel with the comfort of a paying guest setup. Many students and parents search for a girls PG in Durgapur — that's exactly what we are, with more structure and care.</div>
+      </details>
+
+      <details class="faq-item fade-in">
+        <summary>What is the room rent at Nottingville?</summary>
+        <div class="faq-answer">Room rent in Durgapur varies by hostel — at Nottingville, rent starts at ₹6,000 per month for non-AC rooms. AC rooms cost more depending on the configuration. This includes 4 meals daily, 24/7 security, housekeeping, and all utilities. Two months' rent is payable at admission, and monthly rent is due by the 10th of each month.</div>
+      </details>
+
+      <details class="faq-item fade-in">
+        <summary>Is this a girls-only hostel?</summary>
+        <div class="faq-answer">Our main hostel locations are a dedicated girls hostel — also described as a ladies hostel or women's PG. We also have a separate apartment for boys. Both are fully supervised with the same safety standards. WhatsApp us to learn more about either option.</div>
+      </details>
+
+      <details class="faq-item fade-in">
+        <summary>Do you provide meals or is there a mess facility?</summary>
+        <div class="faq-answer">We provide all four meals in-house — breakfast, lunch, evening snacks with tea, and dinner. It's a full mess facility included in your rent. The food is home-cooked daily with a rotating menu that includes non-veg six days a week. No outside food or personal cooking is allowed.</div>
+      </details>
+
+      <details class="faq-item fade-in">
+        <summary>Is it safe for students living away from home?</summary>
+        <div class="faq-answer">Safety is why we exist. Nottingville is a safe hostel with 24/7 CCTV across all common areas, resident wardens, a strict 7 PM curfew, daily attendance registers, and night escort by wardens. The hostel is run by three mothers — the same standards they'd want for their own daughters.</div>
+      </details>
+
+      <details class="faq-item fade-in">
+        <summary>Is there a dormitory option available?</summary>
+        <div class="faq-answer">Yes. We have shared dormitory-style rooms as well as smaller rooms for students who prefer more privacy. All options include the same facilities — meals, security, and supervision. Contact us on WhatsApp for current availability and pricing for each room type.</div>
+      </details>
+
+      <details class="faq-item fade-in">
+        <summary>How close is Nottingville to coaching centres?</summary>
+        <div class="faq-answer">Very close. Our locations on Sarojini Naidu Path are within walking distance of Adhyayan Durgapur, Physics Wallah, Aakash Institute, and Allen Career Institute. Students preparing for NEET UG, JEE Main, JEE Advanced, BITSAT, and CUET save hours of daily commute.</div>
+      </details>
+
+      <details class="faq-item fade-in">
+        <summary>How do I book a bed?</summary>
+        <div class="faq-answer">WhatsApp us at +91 79089 78959 or call any of our numbers. We'll arrange a visit so you can see the hostel yourself. Admission requires two months' rent upfront and a 30-day notice period before vacating. Seats fill quickly each session — we recommend enquiring early.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <!-- SCARCITY CTA -->
 <div class="scarcity">
   <h3 class="serif fade-in">Only 60 beds available.<br>Seats fill every session.</h3>
   <p class="fade-in">Don't wait until it's full. Reach out today and we'll guide you through the admission process.</p>
   <div class="scarcity-ctas fade-in">
-    <a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20book%20a%20bed%20at%20Nottingville%20Hostel." class="btn-white" target="_blank" rel="noopener">
+    <a href="https://wa.me/917908978959?text=Hi%2C%20I%27d%20like%20to%20book%20a%20bed%20at%20Nottingville%20Hostel." class="btn-white" target="_blank" rel="noopener">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Reserve a Bed on WhatsApp
     </a>
@@ -854,7 +1131,7 @@
     <h2 class="section-title fade-in">Ready to give her<br>a real <em>home?</em></h2>
     <p class="contact-sub fade-in">Our team — mothers themselves — are ready to answer every question and make the admission process as easy as possible.</p>
     <div class="contact-ctas fade-in">
-      <a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="btn-wa" target="_blank" rel="noopener">
+      <a href="https://wa.me/917908978959?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admission%20at%20Nottingville%20Hostel." class="btn-wa" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Send WhatsApp Enquiry
       </a>
@@ -867,14 +1144,90 @@
   </div>
 </section>
 
+<!-- LEAD FORM MODAL -->
+<div class="lead-overlay" id="leadOverlay">
+  <div class="lead-modal">
+    <button class="lead-close" id="leadClose">&times;</button>
+    <h3 class="serif">Quick Enquiry</h3>
+    <p class="lead-sub">Fill in a few details so we can help you faster.</p>
+    <form id="leadForm">
+      <label for="leadName">Parent's Name *</label>
+      <input type="text" id="leadName" placeholder="e.g. Sunita Devi" required />
+
+      <label for="leadDaughter">Student's Name</label>
+      <input type="text" id="leadDaughter" placeholder="e.g. Priya" />
+
+      <label for="leadPhone">Phone Number *</label>
+      <input type="tel" id="leadPhone" placeholder="e.g. 98765 43210" required />
+
+      <div class="lead-row">
+        <div>
+          <label for="leadClass">Class</label>
+          <select id="leadClass">
+            <option value="">Select</option>
+            <option value="Class 10">Class 10</option>
+            <option value="Class 11">Class 11</option>
+            <option value="Class 12">Class 12</option>
+            <option value="Dropper">Dropper</option>
+          </select>
+        </div>
+        <div>
+          <label for="leadExam">Preparing For</label>
+          <select id="leadExam">
+            <option value="">Select</option>
+            <option value="NEET UG">NEET UG</option>
+            <option value="JEE Main">JEE Main</option>
+            <option value="JEE Advanced">JEE Advanced</option>
+            <option value="BITSAT">BITSAT</option>
+            <option value="CUET">CUET</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="lead-row">
+        <div>
+          <label for="leadCoaching">Coaching Centre</label>
+          <select id="leadCoaching">
+            <option value="">Select</option>
+            <option value="Adhyayan">Adhyayan</option>
+            <option value="Physics Wallah">Physics Wallah</option>
+            <option value="Aakash">Aakash</option>
+            <option value="Allen">Allen</option>
+            <option value="Resonance">Resonance</option>
+            <option value="Not decided">Not decided</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="leadWhen">Room needed</label>
+          <select id="leadWhen">
+            <option value="">Select</option>
+            <option value="Immediately">Immediately</option>
+            <option value="Next month">Next month</option>
+            <option value="2026-27 session">2026-27</option>
+            <option value="Just exploring">Exploring</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="lead-submit">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Send on WhatsApp
+      </button>
+      <button type="button" class="lead-skip" id="leadSkip">Skip, just open WhatsApp</button>
+    </form>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <p><strong>Nottingville Hostel</strong> &nbsp;·&nbsp; Girls' Hostel, Durgapur &nbsp;·&nbsp; <a href="https://nottingville.space">nottingville.space</a></p>
-  <p style="margin-top:0.5rem;">&copy; 2025 Nottingville. A hostel run by mothers, for daughters.</p>
+  <p style="margin-top:0.5rem;">&copy; 2026 Nottingville. A hostel run by mothers, for daughters.</p>
 </footer>
 
 <!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/919126660502?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Nottingville%20Hostel." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/917908978959?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Nottingville%20Hostel." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -901,6 +1254,132 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  // ── Google Sheets endpoint (set after Apps Script deploy) ──
+  window.__SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyu68FWby2Rzmrxl8sIzZS4iGSvVcr3ICUEgJd6yst7PIpZGJHWSn1oKNTiFKpov4opiw/exec'; // Sheet ID: 1dtCbSjtWOk5kW02XS7SshApDiE6tSM9dJb4zHoH0WcI
+
+  function sendToSheets(params, source) {
+    var endpoint = window.__SHEETS_ENDPOINT;
+    if (!endpoint) return;
+    // Use GET image pixel — most reliable for Apps Script (avoids CORS/redirect issues)
+    var qs = new URLSearchParams({
+      parent_name: params.name || '',
+      phone: params.phone || '',
+      student_name: params.daughter || '',
+      student_class: params.studentClass || '',
+      exam: params.exam || '',
+      coaching: params.coaching || '',
+      move_in: params.when || '',
+      source: source,
+      page_url: location.href
+    }).toString();
+    new Image().src = endpoint + '?' + qs;
+  }
+
+  // ── Lead Form + Meta Pixel tracking ──
+  var overlay = document.getElementById('leadOverlay');
+  var leadForm = document.getElementById('leadForm');
+  var leadClose = document.getElementById('leadClose');
+  var leadSkip = document.getElementById('leadSkip');
+
+  function openLeadForm() { overlay.classList.add('open'); }
+  function closeLeadForm() { overlay.classList.remove('open'); }
+  leadClose.addEventListener('click', closeLeadForm);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeLeadForm(); });
+
+  function fireLeadEvent(extra) {
+    var eid = 'nv_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+    var data = Object.assign({ content_name: 'WhatsApp Lead', content_category: 'WhatsApp', value: 1, currency: 'INR' }, extra || {});
+    fbq('track', 'Lead', data, { eventID: eid });
+    sendCAPI('Lead', eid, data);
+  }
+
+  function buildWAUrl(params) {
+    var lines = ['Hi, I\'d like to enquire about admission at Nottingville Hostel.'];
+    if (params.name) lines.push('Parent: ' + params.name);
+    if (params.daughter) lines.push('Student: ' + params.daughter);
+    if (params.phone) lines.push('Phone: ' + params.phone);
+    if (params.studentClass) lines.push('Class: ' + params.studentClass);
+    if (params.exam) lines.push('Exam: ' + params.exam);
+    if (params.coaching) lines.push('Coaching: ' + params.coaching);
+    if (params.when) lines.push('Move-in: ' + params.when);
+    return 'https://wa.me/917908978959?text=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  // Intercept WhatsApp link clicks → show lead form
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href]');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+
+    if (href.includes('wa.me/')) {
+      e.preventDefault();
+      openLeadForm();
+      return;
+    }
+
+    if (href.startsWith('tel:')) {
+      var eid = 'nv_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+      fbq('track', 'Contact', { content_name: 'Phone Call', content_category: 'Phone' }, { eventID: eid });
+      sendCAPI('Contact', eid, { content_name: 'Phone Call' });
+      gads_phone_conversion();
+    }
+  });
+
+  // Form submit → fire CompleteRegistration + Lead events → open WhatsApp
+  leadForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var params = {
+      name: document.getElementById('leadName').value.trim(),
+      daughter: document.getElementById('leadDaughter').value.trim(),
+      phone: document.getElementById('leadPhone').value.trim(),
+      studentClass: document.getElementById('leadClass').value,
+      exam: document.getElementById('leadExam').value,
+      coaching: document.getElementById('leadCoaching').value,
+      when: document.getElementById('leadWhen').value
+    };
+    // CompleteRegistration = filled the form (higher intent than skip)
+    var regEid = 'nv_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+    var regData = { content_name: 'Lead Form Submitted', lead_name: params.name, lead_phone: params.phone, student_name: params.daughter, student_class: params.studentClass, exam: params.exam, coaching: params.coaching, move_in: params.when, value: 1, currency: 'INR' };
+    fbq('track', 'CompleteRegistration', regData, { eventID: regEid });
+    sendCAPI('CompleteRegistration', regEid, regData);
+    // Also fire Lead for backwards compatibility
+    fireLeadEvent({ lead_name: params.name, student_class: params.studentClass, exam: params.exam, coaching: params.coaching, move_in: params.when });
+    // Send to Google Sheets
+    sendToSheets(params, 'form');
+    closeLeadForm();
+    gads_whatsapp_conversion();
+    window.open(buildWAUrl(params), '_blank');
+    leadForm.reset();
+  });
+
+  // Skip button → fire basic Lead event → open plain WhatsApp
+  leadSkip.addEventListener('click', function() {
+    fireLeadEvent();
+    sendToSheets({}, 'skip');
+    closeLeadForm();
+    gads_whatsapp_conversion();
+    window.open('https://wa.me/917908978959?text=' + encodeURIComponent('Hi, I\'d like to enquire about admission at Nottingville Hostel.'), '_blank');
+  });
+
+  // Server-side Conversions API relay
+  function sendCAPI(eventName, eventID, customData) {
+    var endpoint = window.__CAPI_ENDPOINT;
+    if (!endpoint) return;
+    fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        event_name: eventName,
+        event_id: eventID,
+        event_time: Math.floor(Date.now() / 1000),
+        event_source_url: location.href,
+        custom_data: customData,
+        user_agent: navigator.userAgent
+      }),
+      keepalive: true
+    }).catch(function(){});
+  }
 </script>
 
 </body>

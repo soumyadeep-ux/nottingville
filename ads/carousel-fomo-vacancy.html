@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ochre: #C8800A;
+    --terra: #B83E2C;
+    --cream: #FAF6EE;
+    --deep: #231008;
+    --warm-white: #FFFDF8;
+    --muted: #8B7355;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .card {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    margin-bottom: 40px;
+  }
+  .brand-bar { position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--ochre), var(--terra)); }
+  .logo-mark { position: absolute; top: 48px; left: 80px; display: flex; align-items: center; gap: 16px; }
+  .crystal { width: 44px; height: 44px; border: 2.5px solid currentColor; transform: rotate(15deg); clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); }
+  .brand-name { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; }
+  .slide-counter { position: absolute; top: 52px; right: 80px; font-family: 'DM Sans'; font-weight: 500; font-size: 18px; letter-spacing: 1px; }
+  .bottom-bar { position: absolute; bottom: 48px; left: 80px; right: 80px; display: flex; justify-content: space-between; align-items: center; }
+  .swipe-hint { font-family: 'DM Sans'; font-size: 18px; letter-spacing: 1px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 600; text-align: center; line-height: 1.15; position: relative; z-index: 1; }
+  p { font-family: 'DM Sans', sans-serif; text-align: center; line-height: 1.6; position: relative; z-index: 1; }
+  .accent { color: var(--terra); }
+  .ochre { color: var(--ochre); }
+  .deco-line { width: 80px; height: 3px; background: var(--ochre); margin: 28px auto; position: relative; z-index: 1; }
+
+  /* ===== CARD 1: Shock stat — dark ===== */
+  #fomo1 { background: var(--deep); }
+  #fomo1::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(184,62,44,0.1) 0%, transparent 55%); pointer-events: none; }
+  #fomo1 .crystal { border-color: var(--cream); }
+  #fomo1 .brand-name { color: var(--cream); }
+  #fomo1 .slide-counter, #fomo1 .swipe-hint { color: rgba(250,246,238,0.4); }
+  #fomo1 h1 { font-size: 64px; color: var(--cream); max-width: 820px; }
+  #fomo1 .big-zero { font-family: 'Cormorant Garamond'; font-size: 220px; font-weight: 700; color: var(--terra); line-height: 0.85; position: relative; z-index: 1; }
+  #fomo1 .zero-label { font-family: 'DM Sans'; font-size: 32px; font-weight: 600; color: rgba(250,246,238,0.6); letter-spacing: 3px; text-transform: uppercase; position: relative; z-index: 1; margin-top: 4px; }
+
+  /* ===== CARD 2: Timeline — cream ===== */
+  #fomo2 { background: var(--cream); }
+  #fomo2::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent 48%, rgba(200,128,10,0.03) 48%, rgba(200,128,10,0.03) 52%, transparent 52%), linear-gradient(45deg, transparent 48%, rgba(184,62,44,0.02) 48%, rgba(184,62,44,0.02) 52%, transparent 52%); background-size: 120px 120px; pointer-events: none; }
+  #fomo2 .slide-counter, #fomo2 .swipe-hint { color: var(--muted); }
+  #fomo2 h1 { font-size: 56px; color: var(--deep); max-width: 820px; }
+  .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 36px; position: relative; z-index: 1; width: 600px; }
+  .timeline-item { display: flex; align-items: center; gap: 24px; padding: 20px 0; border-bottom: 1px solid rgba(200,128,10,0.15); }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-month { font-family: 'DM Sans'; font-size: 22px; font-weight: 700; color: var(--ochre); width: 100px; text-align: right; flex-shrink: 0; }
+  .timeline-event { font-family: 'DM Sans'; font-size: 24px; color: var(--deep); }
+  .timeline-event.gone { color: var(--terra); font-weight: 600; }
+
+  /* ===== CARD 3: What late means — dark red ===== */
+  #fomo3 { background: linear-gradient(170deg, #1A0805 0%, #2A100A 100%); }
+  #fomo3::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 70%, rgba(184,62,44,0.06) 0%, transparent 50%); pointer-events: none; }
+  #fomo3 .crystal { border-color: var(--cream); }
+  #fomo3 .brand-name { color: var(--cream); }
+  #fomo3 .slide-counter, #fomo3 .swipe-hint { color: rgba(250,246,238,0.4); }
+  #fomo3 h1 { font-size: 64px; color: var(--cream); max-width: 820px; }
+  .loss-list { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; position: relative; z-index: 1; }
+  .loss-item { font-family: 'DM Sans'; font-size: 28px; color: rgba(250,246,238,0.7); display: flex; align-items: center; gap: 20px; }
+  .loss-item .strike { text-decoration: line-through; color: rgba(250,246,238,0.35); }
+  .loss-item .arrow { color: var(--terra); font-weight: 700; font-size: 24px; }
+
+  /* ===== CARD 4: Why Nottingville — warm cream ===== */
+  #fomo4 { background: linear-gradient(170deg, var(--cream) 0%, #F0E6D6 100%); }
+  #fomo4::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(200,128,10,0.04) 0%, transparent 50%); pointer-events: none; }
+  #fomo4 .slide-counter, #fomo4 .swipe-hint { color: var(--muted); }
+  #fomo4 h1 { font-size: 56px; color: var(--deep); max-width: 820px; }
+  .reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; max-width: 800px; position: relative; z-index: 1; }
+  .reason-item { font-family: 'DM Sans'; font-size: 22px; font-weight: 500; color: var(--deep); background: var(--warm-white); border-left: 4px solid var(--ochre); padding: 20px 24px; border-radius: 8px; }
+
+  /* ===== CARD 5: CTA — deep gradient ===== */
+  #fomo5 { background: linear-gradient(160deg, var(--deep) 0%, #3A1A0E 100%); }
+  #fomo5::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 80%, rgba(200,128,10,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(184,62,44,0.06) 0%, transparent 50%); pointer-events: none; }
+  #fomo5 .crystal { border-color: var(--cream); }
+  #fomo5 .brand-name { color: var(--cream); }
+  #fomo5 .slide-counter { color: rgba(250,246,238,0.5); }
+  #fomo5 h1 { font-size: 56px; color: var(--cream); max-width: 820px; }
+  #fomo5 .urgency-tag { font-family: 'DM Sans'; font-size: 22px; font-weight: 600; color: var(--deep); background: var(--ochre); padding: 12px 36px; border-radius: 8px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 28px; position: relative; z-index: 1; }
+  .wa-button { display: inline-flex; align-items: center; gap: 16px; background: #25D366; color: white; font-family: 'DM Sans'; font-size: 32px; font-weight: 600; padding: 24px 56px; border-radius: 60px; margin-top: 36px; position: relative; z-index: 1; }
+  .phone { font-family: 'DM Sans'; font-size: 28px; font-weight: 500; color: var(--ochre); margin-top: 24px; position: relative; z-index: 1; }
+  .locations { font-family: 'DM Sans'; font-size: 20px; color: rgba(250,246,238,0.4); margin-top: 20px; text-align: center; max-width: 700px; line-height: 1.6; position: relative; z-index: 1; }
+</style>
+</head>
+<body style="background: #e0e0e0; padding: 40px; display: flex; flex-direction: column; align-items: center;">
+
+<!-- CARD 1: Shock stat -->
+<div class="card" id="fomo1">
+  <div class="brand-bar"></div>
+  <div class="logo-mark"><div class="crystal"></div><span class="brand-name">Nottingville</span></div>
+  <div class="slide-counter">1 / 5</div>
+  <h1 style="margin-bottom: 24px;">Last Session. 60 Beds.</h1>
+  <div class="big-zero">0</div>
+  <div class="zero-label">Vacancy by April</div>
+  <div class="bottom-bar"><span class="swipe-hint">Swipe →</span></div>
+</div>
+
+<!-- CARD 2: How fast it fills -->
+<div class="card" id="fomo2">
+  <div class="brand-bar"></div>
+  <div class="logo-mark"><div class="crystal"></div><span class="brand-name">Nottingville</span></div>
+  <div class="slide-counter">2 / 5</div>
+  <h1>Here's How Fast<br><span class="accent">60 Beds Filled.</span></h1>
+  <div class="deco-line"></div>
+  <div class="timeline">
+    <div class="timeline-item"><span class="timeline-month">Feb</span><span class="timeline-event">Bookings open — AC rooms gone in 10 days</span></div>
+    <div class="timeline-item"><span class="timeline-month">March</span><span class="timeline-event">Ground floor full. Only top floor left.</span></div>
+    <div class="timeline-item"><span class="timeline-month">April</span><span class="timeline-event gone">Fully booked. Waitlist only.</span></div>
+  </div>
+  <div class="bottom-bar"><span class="swipe-hint">Swipe →</span><span style="font-family: 'DM Sans'; font-size: 18px; color: var(--ochre);">2025–26 actual data</span></div>
+</div>
+
+<!-- CARD 3: What late means -->
+<div class="card" id="fomo3">
+  <div class="brand-bar"></div>
+  <div class="logo-mark"><div class="crystal"></div><span class="brand-name">Nottingville</span></div>
+  <div class="slide-counter">3 / 5</div>
+  <h1>Book Late.<br><span class="accent">Lose Your Pick.</span></h1>
+  <div class="deco-line" style="background: var(--terra);"></div>
+  <div class="loss-list">
+    <div class="loss-item"><span class="arrow">→</span> <span class="strike">AC room</span> &nbsp;gone</div>
+    <div class="loss-item"><span class="arrow">→</span> <span class="strike">Ground floor</span> &nbsp;gone</div>
+    <div class="loss-item"><span class="arrow">→</span> <span class="strike">Room with friends</span> &nbsp;gone</div>
+    <div class="loss-item"><span class="arrow">→</span> <span class="strike">Any room at all</span> &nbsp;waitlist</div>
+  </div>
+  <div class="bottom-bar"><span class="swipe-hint">Swipe →</span></div>
+</div>
+
+<!-- CARD 4: Why this hostel -->
+<div class="card" id="fomo4">
+  <div class="brand-bar"></div>
+  <div class="logo-mark"><div class="crystal"></div><span class="brand-name">Nottingville</span></div>
+  <div class="slide-counter">4 / 5</div>
+  <h1>Why <span class="accent">10,000 Students</span> Come<br>to Durgapur — and Why<br>Parents Choose <span class="ochre">Us.</span></h1>
+  <div class="deco-line"></div>
+  <div class="reason-grid">
+    <div class="reason-item">Steps from Adhyayan, PW, Aakash & Allen</div>
+    <div class="reason-item">Run by 3 mothers, not a business</div>
+    <div class="reason-item">24×7 CCTV, 7 PM curfew, wardens</div>
+    <div class="reason-item">4 meals/day — home-cooked food</div>
+  </div>
+  <div class="bottom-bar"><span class="swipe-hint">Swipe →</span><span style="font-family: 'DM Sans'; font-size: 18px; color: var(--ochre);">Durgapur</span></div>
+</div>
+
+<!-- CARD 5: CTA -->
+<div class="card" id="fomo5">
+  <div class="brand-bar" style="background: var(--ochre);"></div>
+  <div class="logo-mark"><div class="crystal"></div><span class="brand-name">Nottingville</span></div>
+  <div class="slide-counter">5 / 5</div>
+  <div class="urgency-tag">2026–27 Bookings Open</div>
+  <h1>Expanding to <span class="ochre">100 Beds.</span><br>AC Rooms Won't Last.</h1>
+  <div class="deco-line" style="background: var(--ochre);"></div>
+  <div class="wa-button">💬 Book Now on WhatsApp</div>
+  <div class="phone">+91 79-08978959</div>
+  <div class="locations">AC & Non-AC · Girls Only · Sarojini Naidu Path, Durgapur</div>
+</div>
+
+</body>
+</html>

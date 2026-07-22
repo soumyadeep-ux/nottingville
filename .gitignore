@@ -1,0 +1,14 @@
+# Video files (meme backgrounds for ads — don't deploy to Pages)
+*.mp4
+
+# Wrangler local state
+.wrangler/
+
+# MCP config
+.mcp.json
+
+# Ad creatives output
+ads/output/
+
+# Node modules
+node_modules/
