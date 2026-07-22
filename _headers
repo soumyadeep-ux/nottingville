@@ -1,0 +1,33 @@
+# Cloudflare Pages header rules.
+#
+# IMPORTANT: Pages applies EVERY matching rule and CONCATENATES same-named
+# headers — a more specific path does NOT override `/*`. The first version of
+# this file set Cache-Control on both `/assets/*` and `/*`, which shipped a
+# self-contradicting header:
+#     cache-control: public, max-age=14400, immutable, s-maxage=3600, must-revalidate
+# (`immutable` and `must-revalidate` are mutually exclusive.)
+# So Cache-Control is now set on specific paths ONLY, and `/*` carries security
+# headers alone.
+#
+# Note: the observed max-age is capped at 14400 by the zone's Browser Cache TTL
+# setting in the Cloudflare dashboard, not by this file. Raising it past 4 hours
+# needs that dashboard setting changed.
+#
+# Note: HTML stays `cf-cache-status: DYNAMIC`. Cloudflare Pages does not edge-
+# cache HTML documents and `s-maxage` here does not change that.
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
