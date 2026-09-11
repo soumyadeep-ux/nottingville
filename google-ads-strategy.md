@@ -8,6 +8,146 @@
 
 ---
 
+## ⚠️ Status: audited and changed 2026-09-11
+
+**Read this first. It supersedes parts of the 2026-07-22 section below** (which in turn
+supersedes the 21 Mar build notes further down).
+
+### What the post-LP window showed (28d, 2026-08-14 → 09-10, vs the 28d before the LPs)
+
+| | Pre-LP (Jun 24–Jul 21) | Post-LP (Aug 14–Sep 10) |
+|---|---|---|
+| Days actually serving | 28 | **17** |
+| Spend | INR 3,731 | INR 3,749 |
+| Site visits (`click_type = URL_CLICKS`) | 94 | 89 |
+| CPC on site visits | INR 33.6 | INR 33.5 |
+| Phone-call conversions (primary) | 7 | 6 |
+| WhatsApp clicks (secondary, invisible to bidding) | ~3 | **10** |
+| All leads | ~10 | **16** |
+| CPA the UI shows (calls only) | INR 533 | INR 625 |
+| **Real CPA (calls + WhatsApp)** | ~INR 373 | **INR 234** |
+| Leads per serving day | 0.36 | **0.94** |
+
+The landing pages worked: leads +60% on flat spend in 40% fewer serving days. Two things
+hide it in the account UI.
+
+1. **The prepaid balance throttles delivery.** The account is on manual payments, topped up
+   **INR 1,500 at a time** (INR 1,271.19 credited after 18% GST) roughly weekly
+   (`account_budget_proposal` history: Jul 20, Jul 26, Aug 10, Aug 18, Aug 26, Sep 8). Each
+   top-up lasts 5–7 days at the ~INR 220/day Max Conversions actually spends on active days,
+   then ads stop: Aug 24–25 and **Aug 31–Sep 7** were dark; ads resumed the hour of the Sep 8
+   top-up. 11 of 28 days dark ≈ ~10 leads lost. Check the balance with
+   `account_budget.approved_spending_limit_micros − amount_served_micros` (INR 828.93 on
+   2026-09-11). **Fix:** one INR 8,000 top-up per month, or automatic payments. Nothing else
+   in this doc matters more.
+2. **Smart Bidding is optimising on 6 of 16 leads** because WhatsApp Click is secondary
+   (the 22 Jul owner decision). Pre-LP that cost little (~3 WhatsApp/month); post-LP it is
+   60% of leads, and Max Conversions is learning from ~6 conversions/month, below the ~15 it
+   needs. **Done 2026-09-11: WhatsApp Click set `primary_for_goal = true`** (reverses the
+   22 Jul decision; agency call). `include_in_conversions_metric` is derived/immutable — it
+   flipped with it. Not retroactive in reports: the Conversions column counts WhatsApp from
+   2026-09-11 onward. Next step once there are 15+ conv/month: Maximize Conversion Value with
+   call = 2× WhatsApp so "calls are worth more" is encoded without blinding the algorithm.
+   No MCP tool for this — it was done with `_mutate(customer_id, "conversionActions", …)`
+   from a one-off script (run with `GOOGLE_ADS_AUTH_TYPE=service_account`, which `.env.local`
+   does not set).
+
+Other findings:
+
+- **60% of "clicks" are location-expansion taps** (202 of 335, INR 2.45 each, INR 494 total;
+  14 call-asset clicks, 29 directions, 1 sitelink). Only 89 clicks reached the site, at
+  INR 33.5 each = 79% of spend. The 15.7% CTR is inflated by the taps. Always split
+  `segments.click_type` before reading clicks or CTR on this account.
+- **Geo is PRESENCE_OR_INTEREST**, not the presence-only the March notes describe; 89% of spend
+  was interest-matched. **The March assumption is wrong for this account** — out-of-town
+  parents convert: Kolkata 4 leads / INR 769, Dhanbad 2 / 224, Asansol 2 / 303, vs Durgapur
+  itself 5 / 1,642 (Jul 22–Sep 10, calls + WhatsApp). Do **not** switch to presence-only.
+  Corrects Key Learning #8 below.
+- **Landing-page experience still BELOW AVERAGE on 100% of scored keywords** 7 weeks after
+  launch; lost IS to rank rose 42.5% → 58.9%, which is why site-visit CPC is INR 33 not the
+  historical 12–20. Pages verified: HTTP 200 for AdsBot, Lighthouse desktop 97, LCP 1.0s,
+  TTFB 140ms, robots allows. Not a page defect — per-keyword history rebuilding on ~90 site
+  visits/month. Nothing to fix; re-read in 4 weeks.
+- **Search terms are clean.** `search_term_view` disclosed ~32% of spend. Visible leaks were
+  competitor brands, traveller intent (dormitory/station/homestay), flat rentals and price caps
+  written with a space ("under 5 000").
+- **Day-of-week flipped** vs July (then Sat/Sun best; Jul 22–Sep 10: Thu 9, Fri 8, Sat/Sun 2
+  each). Both reads are noise at this volume. Keep 24/7. 01:00–07:00 IST spent INR 308 in 7
+  weeks for 0 leads — not worth a schedule.
+- Desktop: INR 448, 0 conv — too small to act on. Coaching Proximity: 29 impressions/28d —
+  effectively dead, costs nothing, left alone.
+
+### Changes applied 2026-09-11
+
+1. **18 campaign negatives** (PHRASE): `dormitory`, `railway station`, `station`, `bus stand`,
+   `homestay`, `bhk`, `1 bhk`, `1bhk`, `under 5 000`, `under 4000`, `under 4 000`, `dsms`,
+   `boy's`, `ashirwad`, `goswami`, `maruti kunj`, `nivedita`, `second home`. Negatives 86 → 104.
+2. **Removed keyword** `dormitory durgapur` (QS 1, 17 clicks / INR 170 / 0 leads in 7 weeks).
+3. **13 state exclusions** (presence-based): Kerala, Tamil Nadu, Karnataka, Telangana, Andhra
+   Pradesh, Puducherry, Maharashtra, Gujarat, Goa, Daman & Diu, DNH&DD, Lakshadweep, Andaman.
+   Deliberately conservative — the Hindi-belt states were left in because the location data
+   is thin. ~INR 300/7 weeks of spend, 1 noise lead.
+4. **Three new ad groups**, each on a page that existed since Jul 22 but had no ad group:
+   - **Single Room PG Durgapur** (202803692809) → `/single-room-pg-durgapur`, 10 keywords
+     (`single room pg durgapur`, `single room pg in durgapur city centre`, `single seater pg
+     durgapur`, `private room pg durgapur`, `single occupancy pg durgapur`, `ac single room pg
+     durgapur`…). Rationale: the AC single is the INR 12,000 product and single-room queries
+     were landing on generic pages (5 clicks / INR 150 / 0 leads in 28d).
+   - **City Centre Durgapur** (199773672149) → `/pg-city-centre-durgapur`, 11 keywords — the
+     best historical cluster, previously spread across three groups on generic pages.
+   - **Hostel Fees Durgapur** (198808196286) → `/durgapur-hostel-fees`, 11 fee/price keywords.
+     Historical 25% CVR on fee queries; the one fee keyword had been sitting inert in Hostel
+     Durgapur with 0 impressions.
+   All RSAs quote the confirmed tariff (AC single 12,000 · AC double 9,500 · non-AC from
+   11,000 · four sharing from 6,000).
+5. **8 keywords moved** (removed from the old group after the new ad went live, so no gap):
+   from PG Durgapur — `pg in durgapur city centre`, `pg in city centre durgapur`, `paying guest
+   durgapur city centre`, `girls pg in bidhannagar durgapur`; from Hostel Durgapur — `girls
+   hostel in durgapur city centre`, `hostel in durgapur city centre`, `hostel durgapur fees`;
+   from Room Rent — `single room rent in durgapur`. Room Rent was otherwise left intact: it is
+   the best group (10 leads / INR 1,482 in 28d).
+
+6. **Budget INR 150 → 220/day** (= INR 6,690/month + GST ≈ 7,890, inside the INR 8,000 cap
+   the owners committed to). Note: until the payment cadence is fixed this only drains the
+   prepaid balance faster — the top-up size has to follow.
+
+### Landing page map (live 2026-09-11)
+
+| Ad ID | Ad group | Final URL |
+|---|---|---|
+| 801316412319 | PG Durgapur | `/pg-durgapur` |
+| 801316406568 | Hostel Durgapur | `/girls-hostel-durgapur` |
+| 801431863814 | Room Rent Durgapur | `/room-rent-durgapur` |
+| 801431074463 | Coaching Proximity | `/hostel-near-coaching-durgapur` |
+| 824321139076 | Single Room PG Durgapur | `/single-room-pg-durgapur` |
+| 824406625613 | City Centre Durgapur | `/pg-city-centre-durgapur` |
+| 824280701700 | Hostel Fees Durgapur | `/durgapur-hostel-fees` |
+
+`/locations` remains unassigned (no property in Benachity/Sepco/Fuljhore; page serves the
+long tail honestly).
+
+### Baseline to measure the changes against
+
+**Post-LP 28d: 16 leads (6 calls + 10 WhatsApp) · real CPA 234 · site-visit CPC 33.5 ·
+IS 28.1% · lost-IS-rank 58.9% · lost-IS-budget 13.1% · 17 serving days.**
+Re-read around **2026-10-09**. If the payment fix lands, expect serving days → 28 first;
+judge the ad-group changes on site-visit CPC and lost-IS-rank, not on clicks.
+
+### Open items
+
+- Payment cadence (INR 8,000/month single top-up or autopay) — owner.
+- Google Business Profile: still "Add website" / possibly unclaimed (from July). 231 of this
+  month's clicks went to that listing.
+- MCP `add_geo_targets` docstring says "West Bengal=20457" — wrong, that is Gujarat. West
+  Bengal is **20472** (Jharkhand 21336, Bihar 20455, Odisha 20465). Fix in
+  `google_ads_server.py` before anyone uses it.
+- MCP has no tool for keyword pause (only remove), conversion-action settings, or
+  `geo_target_type_setting`.
+- **Bidding baseline reset on 2026-09-11** (WhatsApp primary + budget 220 + 3 new ad groups
+  on the same day). Expect a Max Conversions learning period; don't judge CPA for 2–3 weeks.
+
+---
+
 ## ⚠️ Status: audited and changed 2026-07-22
 
 **Everything below the "Live Campaign Structure" heading describes the 21 Mar build and is
@@ -69,6 +209,7 @@ inverse of the generic B2B dayparting advice — do not cut weekend spend on thi
 Owner decision — phone call is the more valuable action, WhatsApp second. Accepted tradeoff:
 Smart Bidding optimises on ~16 calls/90d and ignores ~6 WhatsApp leads. Do not propose flipping
 it. (Value-based bidding weighting calls higher needs 15+ conv/month; we have ~5.)
+> **Reversed 2026-09-11** — post-LP WhatsApp became 60% of leads; see the section above.
 
 ### Landing page map (live 2026-07-22)
 

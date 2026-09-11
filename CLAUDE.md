@@ -104,10 +104,12 @@ marked slot; deliberately not guessed), and whether a mess-only service is sold
 - **Weekly check-in:** `/google-ads-weekly` skill — automated performance audit
 - **MCP server:** `/Users/soumyadeepmukherjee/Documents/mcp-google-ads/google_ads_server.py` — read + write tools
 - **MCP write tools:** `create_campaign_budget`, `create_search_campaign`, `create_ad_group`, `add_keywords`, `add_negative_keywords`, `create_responsive_search_ad`, `update_entity_status`, `update_budget_amount`, `add_geo_targets`, `search_geo_targets`, `add_ad_schedule`, `add_call_asset`, `add_sitelink_asset`, `add_callout_asset`, `remove_entity`
-- **Live campaigns (deployed 2026-03-21):**
-  - "Nottingville — Durgapur City" (ID 23677229903) — Durgapur city, INR 100/day, Manual CPC
-  - "Nottingville — Near Durgapur" (ID 23671816026) — 40km radius excl. city, INR 100/day, Manual CPC
-  - 4 ad groups each: PG Durgapur, Hostel Durgapur, Coaching Proximity, Room Rent Durgapur
+- **Live campaign (state as of 2026-09-11 — see `google-ads-strategy.md` top section):**
+  - "Nottingville — Durgapur City" (ID 23677229903) — 30km radius, PRESENCE_OR_INTEREST (out-of-town parents convert; don't flip to presence-only), Maximize Conversions, INR 220/day (≈ INR 7,890/month incl. GST; owners' cap is 8,000)
+  - "Nottingville — Near Durgapur" (ID 23671816026) — PAUSED, redundant
+  - 7 ad groups: PG Durgapur, Hostel Durgapur, Coaching Proximity, Room Rent Durgapur, Single Room PG Durgapur, City Centre Durgapur, Hostel Fees Durgapur — each on its own LP
+- **Prepaid account:** owners top up INR 1,500 at a time; ads go dark when the balance hits zero (11 of 28 days in Aug–Sep 2026). Check `account_budget` served vs limit before blaming the campaign.
+- **Reading reports:** split `segments.click_type` — ~60% of clicks are location-expansion taps, not site visits. Count leads as Phone Call + WhatsApp Click — both primary since 2026-09-11; before that date `metrics.conversions` counts calls only, so use `all_conversions` for older comparisons.
 - **Key insight:** Durgapur-specific keywords convert (3-6% CVR), "near me" keywords waste budget (0% CVR). Always use phrase match with city name.
 - **Prices start at INR 6,000/month** — ads reflect this; budget searchers (under 3000) are negated
 - **Old campaign** "EK | Theme | Pg / Hostel in Durgapur" (ID 19668768710) — paused, kept for historical data reference
