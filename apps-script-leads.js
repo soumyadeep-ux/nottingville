@@ -17,6 +17,33 @@
 
 var SHEET_ID = '1dtCbSjtWOk5kW02XS7SshApDiE6tSM9dJb4zHoH0WcI';
 
+// Single source of truth for the columns. Order must match the appendRow below.
+var HEADERS = ['Timestamp', 'Parent Name', 'Phone', 'Student Name', 'Class', 'Exam',
+               'Coaching', 'Move-in', 'Source', 'Page URL', 'CTA', 'Page'];
+
+/**
+ * Write the header row if it does not already match HEADERS.
+ *
+ * The header row used to be typed by hand in the Sheet UI while the column list
+ * lived here in code, so adding a column meant remembering to do it in two
+ * places — and on 2026-09-13 CTA and Page were written to K/L with no headers
+ * above them. This makes the code the single source of truth and self-heals a
+ * sheet that was never updated by hand.
+ */
+function ensureHeaders(sheet) {
+  var range = sheet.getRange(1, 1, 1, HEADERS.length);
+  var current = range.getValues()[0];
+  for (var i = 0; i < HEADERS.length; i++) {
+    if (current[i] === HEADERS[i]) continue;
+    range.setValues([HEADERS]);
+    try {
+      // Match the new cells to the existing header styling (ochre fill, bold).
+      sheet.getRange(1, 1).copyFormatToRange(sheet, 1, HEADERS.length, 1, 1);
+    } catch (e) { /* cosmetic only — never let this break lead logging */ }
+    return;
+  }
+}
+
 function doGet(e) {
   return handleRequest(e.parameter);
 }
@@ -39,6 +66,8 @@ function handleRequest(data) {
     if (!sheet) {
       sheet = ss.getSheets()[0];
     }
+
+    ensureHeaders(sheet);
 
     sheet.appendRow([
       new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
