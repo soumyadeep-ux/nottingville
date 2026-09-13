@@ -13,6 +13,7 @@ Google Business Profile. Nothing here is invented. Where a number is not known
 (exact AC/non-AC tariff), the page asks the visitor to call rather than guessing.
 """
 
+import hashlib
 import html
 import re
 from pathlib import Path
@@ -20,6 +21,24 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).parent
 SITE = "https://nottingville.space"
+
+
+def asset_url(name):
+    """Cache-busting URL for a mutable asset.
+
+    `_headers` serves /assets/* as `max-age=31536000, immutable` on stable
+    filenames. `immutable` tells the browser not even to revalidate, so without
+    a version in the URL an edit to lp.css/lp.js can never reach anyone who has
+    already loaded a landing page — they would hold the old copy for a year.
+    Hashing the content means the URL changes exactly when the file does, which
+    keeps the long immutable cache correct instead of dangerous.
+    """
+    digest = hashlib.md5((ROOT / "assets" / name).read_bytes()).hexdigest()[:8]
+    return f"/assets/{name}?v={digest}"
+
+
+CSS_URL = asset_url("lp.css")
+JS_URL = asset_url("lp.js")
 
 # ── Verified constants ────────────────────────────────────────────────────────
 WA_NUMBER = "917908978959"          # matches index.html + Google Ads call asset
@@ -442,7 +461,16 @@ PHONE_SVG = ('<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor
              '11.36 0 00.57 3.56 1 1 0 01-.25 1.02l-2.2 2.21z"/></svg>')
 
 
-def wa_url(text):
+def wa_url(text, ref=""):
+    """Prefilled WhatsApp message.
+
+    `ref` appends the page slug so the owners see the source next to the
+    sender's number in the WhatsApp inbox. Each LP maps 1:1 to an ad group,
+    so the slug alone identifies the ad group. Deliberately not the gclid —
+    a tracking string in a message a parent reads looks like spam.
+    """
+    if ref:
+        text = f"{text}\n\nRef: {ref}"
     return f"https://wa.me/{WA_NUMBER}?text={quote(text)}"
 
 
@@ -563,7 +591,7 @@ def block_tariff(p):
     </div>
     <div style="margin-top:1.8rem;display:flex;gap:0.8rem;flex-wrap:wrap">
       <a href="tel:{TEL_PRIMARY}" class="btn-solid btn-primary-cta" data-cta="tariff-call">{PHONE_SVG} Ask for today&rsquo;s tariff</a>
-      <a href="{wa_url(p['wa'])}" class="btn-wa" target="_blank" rel="noopener" data-cta="tariff-wa">Or WhatsApp</a>
+      <a href="{wa_url(p['wa'], p['slug'])}" class="btn-wa" target="_blank" rel="noopener" data-cta="tariff-wa">Or WhatsApp</a>
     </div>
   </div>
 </section>'''
@@ -690,7 +718,7 @@ def render(p):
     phones = "".join(
         f'<a href="tel:{t}" class="phone-link" data-cta="footer-call">{d}</a>'
         for t, d in TEL_ALL)
-    wa = wa_url(p["wa"])
+    wa = wa_url(p["wa"], p["slug"])
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -733,7 +761,7 @@ def render(p):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
 <link rel="preload" as="image" href="/images/hostel-1.webp" />
-<link rel="stylesheet" href="/assets/lp.css" />
+<link rel="stylesheet" href="{CSS_URL}" />
 
 <script type="application/ld+json">{lodging_schema(p)}</script>
 <script type="application/ld+json">{faq_schema(p)}</script>
@@ -806,7 +834,7 @@ def render(p):
   <a href="{wa}" class="s-wa" target="_blank" rel="noopener" data-cta="sticky-wa">{WA_SVG} WhatsApp</a>
 </div>
 
-<script src="/assets/lp.js" defer></script>
+<script src="{JS_URL}" defer></script>
 </body>
 </html>
 '''

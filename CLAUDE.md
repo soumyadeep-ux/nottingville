@@ -50,6 +50,13 @@ click and forces a 7-field form; that gate is why WhatsApp logged 6 conversions 
 into a per-page prefilled message instead. The enquiry is still logged to the
 Google Sheet via a non-blocking pixel.
 
+Each prefilled message ends with `Ref: <page-slug>`, so the owners see the source
+ad group next to the sender's number in the WhatsApp inbox without touching the
+sheet. Deliberately the slug and not the gclid — a tracking string in a message a
+parent reads looks like spam. Note this only reaches you if they actually tap
+**send**; silent openers still fire the Ads conversion and still write a sheet row,
+which is why real chats always run below the WhatsApp Click count.
+
 **Open items for the owners:** exact AC / Non-AC / sharing tariff (the table has a
 marked slot; deliberately not guessed), and whether a mess-only service is sold
 (5 mess keywords are live with no page).
@@ -87,8 +94,11 @@ marked slot; deliberately not guessed), and whether a mess-only service is sold
 - Google Sheet "Nottingville Leads" (ID: `1dtCbSjtWOk5kW02XS7SshApDiE6tSM9dJb4zHoH0WcI`)
 - Apps Script: `apps-script-leads.js` — doGet + doPost → writes to "Leads" tab
 - Browser fires GET image pixel to Apps Script (POST/sendBeacon don't survive Apps Script 302 redirects)
-- `window.__SHEETS_ENDPOINT` in index.html holds the deployed Apps Script URL
-- To redeploy script: paste `apps-script-leads.js` into Apps Script editor → Deploy → New deployment → Web app → Anyone
+- Columns: Timestamp | Parent Name | Phone | Student Name | Class | Exam | Coaching | Move-in | Source | Page URL | **CTA | Page** (last two added 2026-09-13)
+- The endpoint URL is hardcoded in **TWO** places — `window.__SHEETS_ENDPOINT` in `index.html` and `SHEETS_ENDPOINT` in `assets/lp.js`. Change both or half the leads log to the wrong script.
+- **To redeploy the script:** paste `apps-script-leads.js` into the Apps Script editor → Deploy → **Manage deployments** → edit the live deployment (pencil) → Version: **New version** → Deploy.
+- **NEVER use "New deployment" to update an existing script.** It mints a fresh `/exec` URL while both files still point at the old one. The old deployment stays alive and keeps accepting writes, so nothing errors — leads just silently land in a script running stale code. This is exactly what happened on 2026-09-13.
+- Current endpoint: `AKfycbyq7qpStx1-GTw_...`. Superseded: `AKfycbyu68FWby2R...` (still live, old 10-column code).
 
 ## Design System
 - `--ochre: #C8800A` | `--terra: #B83E2C` | `--cream: #FAF6EE` | `--deep: #231008`
@@ -122,3 +132,5 @@ marked slot; deliberately not guessed), and whether a mess-only service is sold
 - Wrangler: create project first if new: `npx wrangler pages project create nottingville --production-branch main`
 - gh CLI authenticated as `soumyadeep-ux` (keyring, no token needed)
 - Cloudflare DNS nameservers: `ainsley.ns.cloudflare.com`, `kobe.ns.cloudflare.com`
+- **`/assets/*` is served `max-age=31536000, immutable`** (see `_headers`). `immutable` means browsers do not even revalidate, so a stable filename would pin `lp.js`/`lp.css` in a returning visitor's browser for a year — no edit could ever reach them. `build-lp.py` therefore appends a content hash (`/assets/lp.js?v=<md5-8>`) via `asset_url()`. Filenames stay stable, so the deploy command above is unaffected. Never hand-write `/assets/lp.js` into a template without the version.
+- HTML is `max-age=0, must-revalidate` / `cf-cache-status: DYNAMIC` — Cloudflare Pages does not edge-cache HTML documents. So an asset version bump reaches every visitor on their next page view, with no purge needed.

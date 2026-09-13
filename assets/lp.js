@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  var SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyu68FWby2Rzmrxl8sIzZS4iGSvVcr3ICUEgJd6yst7PIpZGJHWSn1oKNTiFKpov4opiw/exec';
+  var SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyq7qpStx1-GTw_aymixK3ZX-uvrIjDK3-3eHtigEK1txcsSN5nm5ensBU591fqln_aaw/exec';
 
   /* ── Nav shadow ── */
   var nav = document.getElementById('nav');
