@@ -8,6 +8,45 @@
 
 ---
 
+## ⚠️ Status: audited and changed 2026-09-17 (assets)
+
+**Why:** owners reported fewer calls. Since Sep 13 the ₹220 budget has been used up by
+4–7 PM every day. Before Sep 11, ads still showed after 8 PM on 15 of 17 full days. About
+30% of call taps come from ad clicks after 5 PM. Maps taps halved (11.3 → ~5.5/day).
+Sep 14–16 had 2 call taps and 0 WhatsApp taps, against ~1.9 call taps/day before. Cause:
+Max Conversions is re-learning (`LEARNING_COMPOSITION_CHANGE`) after the Sep 11 changes and
+bidding up to ₹43–107 per click. Landing pages were verified healthy.
+
+**Changes applied 2026-09-17 (API, all verified; new assets under review at time of writing):**
+
+1. `Calls from ads` (1057572880) counts calls of **30s+** (was 60s). Google forwarding numbers
+   work in India (`call_view`): of 10 ad calls since June, 5 were missed and the answered ones
+   ran 10–52s, so none had ever counted.
+2. **One call asset:** +91 79089 78959, shown 8 AM–10 PM daily, tied to `Calls from ads`
+   (asset 422231171323). Removed +91 84361 50885 and the unscheduled 79089 link.
+3. **Sitelinks → landing pages** (replaced 4 homepage-anchor links, where WhatsApp still sits
+   behind the 7-field form): Fees & Room Rates · Single AC Rooms · City Centre PG · Near
+   Coaching Centres.
+4. **Structured snippets:** Amenities (4 Meals Daily, AC Rooms, 24/7 CCTV, Women Wardens,
+   Medical Support, Daily Attendance) · Types (AC Single Room, AC Double Sharing, Four
+   Sharing, Non-AC Rooms).
+5. **Business name** "Nottingville" + **logo** (crystal mark, 1200×1200).
+6. **5 AI-generated image assets** (Google's generator, owners' login; user's decision to use
+   them). The library holds 21 copies of 5 images; one per set is linked.
+
+Unchanged by design: callouts, no price asset, no WhatsApp message asset, no lead form.
+
+**Still open:** (a) the evening blackout. Recommended a portfolio Max Conversions strategy with a
+~₹40 max CPC (`bidding_strategy.maximize_conversions.cpc_bid_ceiling_micros`); awaiting a
+decision. (b) Prepaid balance ₹1,200 on Sep 17, which runs out ~Sep 22. (c) Apps Script
+redeploy for the blank-row guard. (d) New class 11–12 images must be made in the Google Ads UI:
+API `generateImages` returns `CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE`.
+
+**Measure:** the last impression hour per day, and call taps (Clicks to call + website phone
+taps + `call_view`). Local actions report ~3 days late.
+
+---
+
 ## ⚠️ Status: audited and changed 2026-09-11
 
 **Read this first. It supersedes parts of the 2026-07-22 section below** (which in turn
