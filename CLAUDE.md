@@ -96,9 +96,13 @@ marked slot; deliberately not guessed), and whether a mess-only service is sold
 - Browser fires GET image pixel to Apps Script (POST/sendBeacon don't survive Apps Script 302 redirects)
 - Columns: Timestamp | Parent Name | Phone | Student Name | Class | Exam | Coaching | Move-in | Source | Page URL | **CTA | Page** (last two added 2026-09-13)
 - The endpoint URL is hardcoded in **TWO** places — `window.__SHEETS_ENDPOINT` in `index.html` and `SHEETS_ENDPOINT` in `assets/lp.js`. Change both or half the leads log to the wrong script.
-- **To redeploy the script:** paste `apps-script-leads.js` into the Apps Script editor → Deploy → **Manage deployments** → edit the live deployment (pencil) → Version: **New version** → Deploy.
+- **To redeploy the script:** `~/Documents/mcp-google-ads/.venv/bin/python push-apps-script.py --dry-run`, then again without `--dry-run`. It replaces `Code.gs`, cuts a new version and moves the **existing** deployment to it, so the `/exec` URL never changes. Run `node apps-script-leads.test.js` first; it mocks `SpreadsheetApp`/`ContentService` and asserts which requests write a row.
+  - Auth is the ekamoira OAuth client (`~/.config/google-sheets-mcp/credentials.json`) with its own token at `~/.config/google-sheets-mcp/apps-script-token.json` (script.projects + script.deployments). The Sheets `token.json` only has spreadsheets+drive and **cannot** push. The Apps Script API must be on for GCP project `1027361589627` and for soumyadeep@ekamoira.com at script.google.com/home/usersettings (Chrome profile "Soumyadeep - Ekamoira"); both were enabled 2026-09-17.
+  - The script is **bound to the Leads sheet**, so Drive never lists it. Script ID `10c-TQoooOYJf88c0IgF9dnsB_H3r5ofSfHBETt79z5iHlk7ocOEZ_yLo`.
+  - Manual fallback: paste `apps-script-leads.js` into the editor → Deploy → **Manage deployments** → edit the live deployment (pencil) → Version: **New version** → Deploy.
+  - Verify by reading sheet rows, not the HTTP body. The `/exec` → googleusercontent echo can return a Drive "Page not found" page to curl/requests even though the script ran and wrote the row.
 - **NEVER use "New deployment" to update an existing script.** It mints a fresh `/exec` URL while both files still point at the old one. The old deployment stays alive and keeps accepting writes, so nothing errors — leads just silently land in a script running stale code. This is exactly what happened on 2026-09-13.
-- Current endpoint: `AKfycbyq7qpStx1-GTw_...`. Superseded: `AKfycbyu68FWby2R...` (still live, old 10-column code).
+- Current endpoint: `AKfycbyq7qpStx1-GTw_...` (version 6 since 2026-09-17: ignores requests without `source`, syncs the header row). Superseded but still live **and anonymous**, running old code with no `source` guard: `AKfycbyu68FWby2R...` (v4) and `AKfycbwG-FxHZnOr...` (v3). Any stray hit there still writes a blank row; archive both once nothing points at them.
 
 ## Design System
 - `--ochre: #C8800A` | `--terra: #B83E2C` | `--cream: #FAF6EE` | `--deep: #231008`

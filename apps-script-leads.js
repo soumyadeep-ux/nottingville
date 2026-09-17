@@ -60,6 +60,15 @@ function doPost(e) {
 }
 
 function handleRequest(data) {
+  // Every real hit from index.html and assets/lp.js carries `source`. A request
+  // without one is someone or something opening the bare /exec URL, and used to
+  // be appended as an empty row mislabelled "form" (rows 98-99, 16-17 Sep 2026).
+  if (!data || !data.source) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: 'ignored', message: 'missing source' }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   try {
     var ss = SpreadsheetApp.openById(SHEET_ID);
     var sheet = ss.getSheetByName('Leads');
@@ -67,7 +76,8 @@ function handleRequest(data) {
       sheet = ss.getSheets()[0];
     }
 
-    ensureHeaders(sheet);
+    // Header upkeep is cosmetic. If rewriting row 1 ever throws, still log the lead.
+    try { ensureHeaders(sheet); } catch (e) { /* never block lead logging */ }
 
     sheet.appendRow([
       new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
@@ -78,7 +88,7 @@ function handleRequest(data) {
       data.exam || '',
       data.coaching || '',
       data.move_in || '',
-      data.source || 'form',
+      data.source,
       data.page_url || '',
       data.cta || '',
       data.page || ''
